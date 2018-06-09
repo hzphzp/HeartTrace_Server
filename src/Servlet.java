@@ -1,3 +1,4 @@
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,6 +21,8 @@ public class Servlet extends HttpServlet {
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+
         response.setIntHeader("Refresh", 5);
         Date date = new Date();
         response.setContentType("text/html");
@@ -39,7 +42,6 @@ public class Servlet extends HttpServlet {
             writer.println("<td>" + paraValue + "</td></tr>\n");
             writer.println("<h1>" + date.toString() + "</h1>");
         }
-        response.sendError(407, "Nedd Authrorize");
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
