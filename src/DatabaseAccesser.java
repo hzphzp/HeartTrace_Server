@@ -12,8 +12,6 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.sql.*;
 
-import com.google.gson.Gson;
-
 @WebServlet(name = "DatabaseAccesser")
 public class DatabaseAccesser extends HttpServlet {
     // JDBC 驱动器名称和数据库的 URL
@@ -82,11 +80,6 @@ public class DatabaseAccesser extends HttpServlet {
         while ((line = reader.readLine()) != null) {
             stringBuilder.append(line);
         }
-        Gson
-
-
-
-
 
        /* param1 = request.getParameter("param1");
         param2 = request.getParameter("param2");
