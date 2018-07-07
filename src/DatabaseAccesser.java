@@ -1,12 +1,18 @@
 
+import sun.rmi.runtime.Log;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.sql.*;
+
+import com.google.gson.Gson;
 
 @WebServlet(name = "DatabaseAccesser")
 public class DatabaseAccesser extends HttpServlet {
@@ -70,7 +76,24 @@ public class DatabaseAccesser extends HttpServlet {
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doGet(request,response);
+        BufferedReader reader = new BufferedReader(new InputStreamReader(request.getInputStream()));
+        StringBuilder stringBuilder = new StringBuilder();
+        String line = null;
+        while ((line = reader.readLine()) != null) {
+            stringBuilder.append(line);
+        }
+        Gson
+
+
+
+
+
+       /* param1 = request.getParameter("param1");
+        param2 = request.getParameter("param2");
+        param3 = request.getParameter("param3");
+        log.print(param1);
+        log.print(param2);
+        log.print(param3);*/
     }
 
     public void destroy(){
