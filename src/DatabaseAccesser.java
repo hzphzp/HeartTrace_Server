@@ -1,5 +1,5 @@
-
-import sun.rmi.runtime.Log;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -80,13 +80,10 @@ public class DatabaseAccesser extends HttpServlet {
         while ((line = reader.readLine()) != null) {
             stringBuilder.append(line);
         }
-
-       /* param1 = request.getParameter("param1");
-        param2 = request.getParameter("param2");
-        param3 = request.getParameter("param3");
-        log.print(param1);
-        log.print(param2);
-        log.print(param3);*/
+        Gson gson = new GsonBuilder().create();
+        TestJson testJson = gson.fromJson(stringBuilder.toString(), TestJson.class);
+        log(testJson.username);
+        log(testJson.password);
     }
 
     public void destroy(){

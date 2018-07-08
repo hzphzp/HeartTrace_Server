@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="HeartTrace_Server:war exploded3 archive">
+    <output-path>$PROJECT_DIR$/out/artifacts/HeartTrace_Server_war_exploded3_archive</output-path>
+    <root id="archive" name="HeartTrace_Server_war exploded3 archive.war">
+      <element id="artifact" artifact-name="HeartTrace_Server:war exploded3" />
+    </root>
+  </artifact>
+</component>

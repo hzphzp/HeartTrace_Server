@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
-  <artifact type="exploded-war" name="HeartTrace_Server:war exploded">
-    <output-path>$PROJECT_DIR$/out/artifacts/HeartTrace_Server_war_exploded</output-path>
+  <artifact type="exploded-war" name="HeartTrace_Server:war exploded3">
+    <output-path>$PROJECT_DIR$/out/artifacts/HeartTrace_Server_war_exploded3</output-path>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">

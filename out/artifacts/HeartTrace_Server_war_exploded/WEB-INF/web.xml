@@ -22,4 +22,14 @@
         <servlet-name>DatabaseAccesser</servlet-name>
         <url-pattern>/DatabaseAccesser</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Sync</servlet-name>
+        <servlet-class>Sync</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Sync</servlet-name>
+        <url-pattern>/Sync</url-pattern>
+    </servlet-mapping>
 </web-app>
