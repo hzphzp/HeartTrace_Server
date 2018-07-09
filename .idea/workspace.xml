@@ -12,27 +12,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4c2f0025-f4c7-4f32-91b5-e62e27ef5760" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/HeartTrace_Server_war.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/HeartTrace_Server_war_exploded2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/HeartTrace_Server_war_exploded2_archive.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/HeartTrace_Server_war_exploded3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/HeartTrace_Server_war_exploded3_archive.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/gson_2_8_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_8_0_11.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Diaries.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Diarybook.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Sync.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/TestJson.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/HeartTrace_Server_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/HeartTrace_Server_war_exploded.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_5_1_39_bin.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/DatabaseAdapter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HeartTrace_Server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/HeartTrace_Server.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/HeartTrace_Server_war_exploded/WEB-INF/classes/DatabaseAccesser.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/HeartTrace_Server_war_exploded/WEB-INF/classes/DatabaseAccesser.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/HeartTrace_Server_war_exploded/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/HeartTrace_Server_war_exploded/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HeartTrace_Server/DatabaseAccesser.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HeartTrace_Server/DatabaseAccesser.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DatabaseAccesser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DatabaseAccesser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -53,11 +34,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DatabaseAccesser.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="DatabaseAccesser.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/DatabaseAccesser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="92">
-              <caret line="76" selection-start-line="76" selection-end-line="76" />
+            <state relative-caret-position="276">
+              <caret line="12" column="18" selection-end-line="12" selection-end-column="18" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -65,14 +46,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Sync.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Sync.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Sync.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
+            <state relative-caret-position="667">
               <caret line="29" selection-start-line="29" selection-end-line="29" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DatabaseAdapter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/DatabaseAdapter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="23">
+              <caret line="1" selection-start-line="1" selection-end-line="1" />
             </state>
           </provider>
         </entry>
@@ -144,6 +134,7 @@
         <option value="$PROJECT_DIR$/src/Diary.java" />
         <option value="$PROJECT_DIR$/src/Diaries.java" />
         <option value="$PROJECT_DIR$/src/Sync.java" />
+        <option value="$PROJECT_DIR$/src/DatabaseAdapter.java" />
       </list>
     </option>
   </component>
@@ -160,10 +151,10 @@
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="y" value="67" />
-    <option name="width" value="1925" />
-    <option name="height" value="999" />
+    <option name="width" value="1928" />
+    <option name="height" value="1001" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -174,6 +165,8 @@
     </navigator>
     <panes>
       <pane id="AndroidView" />
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -223,8 +216,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -374,41 +365,43 @@
       <workItem from="1531021575690" duration="186000" />
       <workItem from="1531021789097" duration="585000" />
       <workItem from="1531022403657" duration="15556000" />
+      <workItem from="1531120711333" duration="1008000" />
+      <workItem from="1531125380063" duration="2366000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="43236000" />
+    <option name="totallyTimeSpent" value="46610000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="23" width="1390" height="758" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Application Servers" order="7" />
-      <window_info anchor="right" id="Maven Projects" order="3" />
-      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info id="Capture Tool" order="2" />
-      <window_info id="Designer" order="2" />
-      <window_info anchor="right" id="Database" order="3" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info id="UI Designer" order="2" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.39937598" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="7" weight="0.32917318" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="bottom" id="Java Enterprise" order="7" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
+      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Application Servers" order="7" />
+      <window_info anchor="right" id="Maven Projects" order="3" />
+      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.39313573" />
       <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.8363636" visible="true" weight="0.24055232" />
-      <window_info id="Web" order="2" sideWeight="0.16363636" side_tool="true" visible="true" weight="0.24055232" />
+      <window_info id="Capture Tool" order="2" />
+      <window_info id="Designer" order="2" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.8330733" visible="true" weight="0.24055232" />
+      <window_info id="Web" order="2" sideWeight="0.16692668" side_tool="true" visible="true" weight="0.24055232" />
+      <window_info anchor="right" id="Database" order="3" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info id="UI Designer" order="2" />
       <window_info anchor="right" id="Theme Preview" order="3" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39937598" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.32917318" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -805,16 +798,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/DatabaseAccesser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="76" selection-start-line="76" selection-end-line="76" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="782">
@@ -829,9 +812,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Diary.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Diaries.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="69">
@@ -841,8 +821,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Sync.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
+        <state relative-caret-position="667">
           <caret line="29" selection-start-line="29" selection-end-line="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DatabaseAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DatabaseAccesser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="12" column="18" selection-end-line="12" selection-end-column="18" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
