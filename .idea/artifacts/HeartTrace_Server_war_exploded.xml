@@ -9,6 +9,11 @@
         <element id="directory" name="lib">
           <element id="library" level="project" name="mysql-connector-java-8.0.11" />
           <element id="file-copy" path="$PROJECT_DIR$/lib/gson-2.8.5.jar" />
+          <element id="library" level="project" name="Maven: com.auth0:java-jwt:3.4.0" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.9.6" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.9.0" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-core:2.9.6" />
+          <element id="library" level="project" name="Maven: commons-codec:commons-codec:1.11" />
         </element>
       </element>
       <element id="javaee-facet-resources" facet="HeartTrace_Server/web/Web" />
