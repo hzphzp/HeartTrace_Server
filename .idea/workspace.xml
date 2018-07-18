@@ -7,18 +7,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4c2f0025-f4c7-4f32-91b5-e62e27ef5760" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Servlet/Testverify.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/HeartTrace_Server_war/HeartTrace_Server_war.war" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/HeartTrace_Server_war/HeartTrace_Server_war.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/HeartTrace_Server_war_exploded/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/HeartTrace_Server_war_exploded/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/HeartTrace_Server_war_exploded/WEB-INF/classes/Servlet/Loginup.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/HeartTrace_Server_war_exploded/WEB-INF/classes/Servlet/Loginup.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/HeartTrace_Server_war_exploded/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/HeartTrace_Server_war_exploded/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Jwt/JavaWebToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Jwt/JavaWebToken.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Servlet/Loginup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Servlet/Loginup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Servlet/Loginup.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Servlet/Loginup.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterDir="false" />
-    </list>
+    <list default="true" id="4c2f0025-f4c7-4f32-91b5-e62e27ef5760" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -69,8 +58,8 @@
       <file leaf-file-name="web.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="982">
-              <caret line="60" column="20" selection-start-line="60" selection-start-column="20" selection-end-line="60" selection-end-column="20" />
+            <state relative-caret-position="299">
+              <caret line="59" lean-forward="true" selection-start-line="59" selection-end-line="59" />
             </state>
           </provider>
         </entry>
@@ -225,6 +214,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
@@ -312,7 +302,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -467,11 +456,12 @@
       <workItem from="1531125380063" duration="24331000" />
       <workItem from="1531491790058" duration="6130000" />
       <workItem from="1531724812233" duration="446000" />
+      <workItem from="1531928146309" duration="896000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="75151000" />
+    <option name="totallyTimeSpent" value="76047000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="23" width="1390" height="758" extended-state="6" />
@@ -492,7 +482,7 @@
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.8330733" visible="true" weight="0.24055232" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.8330733" visible="true" weight="0.24055232" />
       <window_info id="Web" order="2" sideWeight="0.16692668" side_tool="true" weight="0.24055232" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -504,10 +494,10 @@
       <window_info anchor="bottom" id="Messages" order="7" weight="0.32917318" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32917318" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32917318" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -969,8 +959,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="982">
-          <caret line="60" column="20" selection-start-line="60" selection-start-column="20" selection-end-line="60" selection-end-column="20" />
+        <state relative-caret-position="299">
+          <caret line="59" lean-forward="true" selection-start-line="59" selection-end-line="59" />
         </state>
       </provider>
     </entry>
