@@ -53,4 +53,14 @@
         <url-pattern>/Servlet.Loginup</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>Testverify</servlet-name>
+        <servlet-class>Servlet.Testverify</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Testverify</servlet-name>
+        <url-pattern>/Servlet.Testverify</url-pattern>
+    </servlet-mapping>
+
 </web-app>

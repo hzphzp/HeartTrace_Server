@@ -2,6 +2,7 @@ package Servlet;
 
 import Db.DatabaseAdapter;
 import Json.LoginBack;
+import Jwt.JavaWebToken;
 import Output.Output;
 import com.google.gson.Gson;
 
@@ -54,7 +55,7 @@ public class Loginup extends HttpServlet {
                     LoginBack loginBack = new LoginBack();
                     loginBack.success = true;
                     loginBack.msg = "登录成功，放回token";
-                    loginBack.token = null;
+                    loginBack.token = JavaWebToken.createToken();
                     Output.output(gson.toJson(loginBack), response);
                 }
             }

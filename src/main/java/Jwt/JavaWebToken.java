@@ -7,7 +7,7 @@ import com.auth0.jwt.exceptions.JWTCreationException;
 import com.auth0.jwt.interfaces.DecodedJWT;
 
 public class JavaWebToken {
-    public String createToken(){
+    public static String createToken(){
         String token = null;
         try{
             Algorithm algorithm = Algorithm.HMAC256("secret");
@@ -18,7 +18,7 @@ public class JavaWebToken {
         }
         return token;
     }
-    public void verifyToken(String token){
+    public static void verifyToken(String token){
         try{
             Algorithm algorithm = Algorithm.HMAC256("secret");
             JWTVerifier verifier = JWT.require(algorithm).withIssuer("huangzp").build();
