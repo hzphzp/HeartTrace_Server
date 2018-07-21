@@ -6,108 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4c2f0025-f4c7-4f32-91b5-e62e27ef5760" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_auth0_java_jwt_3_4_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_9_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_9_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_9_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_codec_commons_codec_1_11.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Json/LoginBack.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Output/Output.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Servlet/Loginup.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Servlet/Signin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/HeartTrace_Server_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/HeartTrace_Server_war_exploded.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/HeartTrace_Server_war_exploded2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/HeartTrace_Server_war_exploded2_archive.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/HeartTrace_Server_war_exploded3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/HeartTrace_Server_war_exploded3_archive.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/HeartTrace_Server_war_exploded4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/HeartTrace_Server_war_exploded4_archive.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HeartTrace_Server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/HeartTrace_Server.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/HeartTrace_Server_war/HeartTrace_Server_war.war" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/HeartTrace_Server_war/HeartTrace_Server_war.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/HeartTrace_Server_war_exploded/WEB-INF/classes/Json/Diaries.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/HeartTrace_Server_war_exploded/WEB-INF/classes/Json/Diaries.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/HeartTrace_Server_war_exploded/WEB-INF/classes/Json/Diary.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/HeartTrace_Server_war_exploded/WEB-INF/classes/Json/Diary.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/HeartTrace_Server_war_exploded/WEB-INF/classes/Json/Diarybook.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/HeartTrace_Server_war_exploded/WEB-INF/classes/Json/Diarybook.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/HeartTrace_Server_war_exploded/WEB-INF/classes/Servlet/DatabaseAccesser.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/HeartTrace_Server_war_exploded/WEB-INF/classes/Servlet/DatabaseAccesser.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/HeartTrace_Server_war_exploded/WEB-INF/classes/Servlet/DatabaseAdapter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/HeartTrace_Server_war_exploded/WEB-INF/classes/Servlet/Servlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/HeartTrace_Server_war_exploded/WEB-INF/classes/Servlet/Servlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/HeartTrace_Server_war_exploded/WEB-INF/classes/Servlet/Sync$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/HeartTrace_Server_war_exploded/WEB-INF/classes/Servlet/Sync$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/HeartTrace_Server_war_exploded/WEB-INF/classes/Servlet/Sync.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/HeartTrace_Server_war_exploded/WEB-INF/classes/Servlet/Sync.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/HeartTrace_Server_war_exploded/WEB-INF/classes/Servlet/TestJson.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/HeartTrace_Server_war_exploded/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/HeartTrace_Server_war_exploded/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/HeartTrace_Server_war_exploded2/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/HeartTrace_Server_war_exploded2/WEB-INF/classes/DatabaseAccesser.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/HeartTrace_Server_war_exploded2/WEB-INF/classes/DatabaseAdapter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/HeartTrace_Server_war_exploded2/WEB-INF/classes/Diaries.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/HeartTrace_Server_war_exploded2/WEB-INF/classes/Diary.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/HeartTrace_Server_war_exploded2/WEB-INF/classes/Diarybook.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/HeartTrace_Server_war_exploded2/WEB-INF/classes/Servlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/HeartTrace_Server_war_exploded2/WEB-INF/classes/Sync$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/HeartTrace_Server_war_exploded2/WEB-INF/classes/Sync.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/HeartTrace_Server_war_exploded2/WEB-INF/classes/TestJson.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/HeartTrace_Server_war_exploded2/WEB-INF/lib/gson-2.8.5.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/HeartTrace_Server_war_exploded2/WEB-INF/lib/mysql-connector-java-8.0.11.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/HeartTrace_Server_war_exploded2/WEB-INF/web.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/HeartTrace_Server_war_exploded2/index.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/HeartTrace_Server_war_exploded2/test.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/HeartTrace_Server_war_exploded2_archive/HeartTrace_Server_war exploded2 archive.war" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/HeartTrace_Server_war_exploded2_archive/HeartTrace_Server_war2.war" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/HeartTrace_Server_war_exploded3/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/HeartTrace_Server_war_exploded3/WEB-INF/classes/DatabaseAccesser.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/HeartTrace_Server_war_exploded3/WEB-INF/classes/DatabaseAdapter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/HeartTrace_Server_war_exploded3/WEB-INF/classes/Diaries.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/HeartTrace_Server_war_exploded3/WEB-INF/classes/Diary.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/HeartTrace_Server_war_exploded3/WEB-INF/classes/Diarybook.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/HeartTrace_Server_war_exploded3/WEB-INF/classes/Servlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/HeartTrace_Server_war_exploded3/WEB-INF/classes/Sync$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/HeartTrace_Server_war_exploded3/WEB-INF/classes/Sync.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/HeartTrace_Server_war_exploded3/WEB-INF/classes/TestJson.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/HeartTrace_Server_war_exploded3/WEB-INF/lib/gson-2.8.5.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/HeartTrace_Server_war_exploded3/WEB-INF/lib/mysql-connector-java-8.0.11.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/HeartTrace_Server_war_exploded3/WEB-INF/web.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/HeartTrace_Server_war_exploded3/index.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/HeartTrace_Server_war_exploded3/test.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/HeartTrace_Server_war_exploded3_archive/HeartTrace_Server_war exploded3 archive.war" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/HeartTrace_Server_war_exploded3_archive/HeartTrace_Server_war3.war" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/HeartTrace_Server_war_exploded4/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/HeartTrace_Server_war_exploded4/WEB-INF/classes/DatabaseAccesser.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/HeartTrace_Server_war_exploded4/WEB-INF/classes/DatabaseAdapter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/HeartTrace_Server_war_exploded4/WEB-INF/classes/Diaries.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/HeartTrace_Server_war_exploded4/WEB-INF/classes/Diary.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/HeartTrace_Server_war_exploded4/WEB-INF/classes/Diarybook.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/HeartTrace_Server_war_exploded4/WEB-INF/classes/Servlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/HeartTrace_Server_war_exploded4/WEB-INF/classes/Sync$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/HeartTrace_Server_war_exploded4/WEB-INF/classes/Sync.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/HeartTrace_Server_war_exploded4/WEB-INF/classes/TestJson.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/HeartTrace_Server_war_exploded4/WEB-INF/lib/gson-2.8.5.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/HeartTrace_Server_war_exploded4/WEB-INF/lib/mysql-connector-java-8.0.11.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/HeartTrace_Server_war_exploded4/WEB-INF/web.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/HeartTrace_Server_war_exploded4/index.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/HeartTrace_Server_war_exploded4/test.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/HeartTrace_Server_war_exploded4_archive/HeartTrace_Server_war4.war" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HeartTrace_Server/Json/Diaries.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HeartTrace_Server/Json/Diary.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HeartTrace_Server/Json/Diarybook.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HeartTrace_Server/Servlet/DatabaseAccesser.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HeartTrace_Server/Servlet/DatabaseAdapter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HeartTrace_Server/Servlet/Servlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HeartTrace_Server/Servlet/Sync$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HeartTrace_Server/Servlet/Sync.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HeartTrace_Server/Servlet/TestJson.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Json/Diaries.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Json/Diary.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Json/Diarybook.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Servlet/DatabaseAccesser.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Servlet/DatabaseAdapter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Servlet/Servlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Servlet/Sync.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Servlet/TestJson.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterDir="false" />
-    </list>
+    <list default="true" id="4c2f0025-f4c7-4f32-91b5-e62e27ef5760" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -119,98 +18,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="DatabaseAccesser.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Servlet/DatabaseAccesser.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="161">
-              <caret line="48" column="40" selection-start-line="48" selection-start-column="40" selection-end-line="48" selection-end-column="40" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Loginup.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Servlet/Loginup.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="52">
-              <caret line="41" column="20" selection-start-line="41" selection-start-column="20" selection-end-line="41" selection-end-column="20" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="12" column="29" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Sync.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Sync.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Servlet/Sync.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="322">
-              <caret line="31" column="15" selection-start-line="31" selection-start-column="15" selection-end-line="31" selection-end-column="15" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LoginBack.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Json/LoginBack.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="115">
-              <caret line="5" column="16" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Signin.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Servlet/Signin.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="943">
-              <caret line="41" column="30" selection-start-line="41" selection-start-column="30" selection-end-line="41" selection-end-column="30" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="web.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="14" selection-start-line="14" selection-end-line="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Output.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Output/Output.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="115">
-              <caret line="7" column="22" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Servlet.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Servlet/Servlet.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="25" column="8" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="8" />
+            <state relative-caret-position="167">
+              <caret line="27" selection-start-line="27" selection-end-line="29" selection-end-column="72" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -221,11 +33,8 @@
       <file leaf-file-name="DatabaseAdapter.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Db/DatabaseAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="7" selection-start-column="7" selection-end-column="7" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="391">
+              <caret line="22" column="9" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -546,43 +355,68 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="71302000" />
+    <option name="totallyTimeSpent" value="71338000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="23" width="1390" height="758" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Event Log" order="13" side_tool="true" />
       <window_info anchor="bottom" id="Application Servers" order="7" />
-      <window_info anchor="right" id="Maven Projects" order="3" />
-      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info id="Capture Tool" order="2" />
+      <window_info anchor="right" id="Maven Projects" order="8" />
+      <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
+      <window_info id="Capture Tool" order="7" />
       <window_info id="Designer" order="2" />
-      <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="right" id="Database" order="5" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info id="UI Designer" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.35101405" />
+      <window_info id="UI Designer" order="4" />
+      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.35101405" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="7" weight="0.32917318" />
-      <window_info anchor="right" id="Palette&#9;" order="3" />
-      <window_info id="Image Layers" order="2" />
-      <window_info anchor="bottom" id="Java Enterprise" order="7" />
-      <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.39313573" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.8330733" visible="true" weight="0.24055232" />
-      <window_info id="Web" order="2" sideWeight="0.16692668" side_tool="true" weight="0.24055232" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32917318" />
-      <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Messages" order="9" weight="0.32917318" />
+      <window_info anchor="right" id="Palette&#9;" order="6" />
+      <window_info id="Image Layers" order="3" />
+      <window_info anchor="bottom" id="Java Enterprise" order="10" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="bottom" id="Version Control" order="12" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.39313573" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.8330733" visible="true" weight="0.24055232" />
+      <window_info id="Web" order="6" sideWeight="0.16692668" side_tool="true" weight="0.24055232" />
+      <window_info anchor="right" id="Theme Preview" order="7" />
+      <window_info id="Favorites" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.39313573" />
+      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.8330733" visible="true" weight="0.24055232" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Java Enterprise" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info anchor="bottom" id="Application Servers" order="7" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Palette&#9;" order="3" />
+      <window_info anchor="right" id="Maven Projects" order="3" />
+      <window_info id="Web" order="2" sideWeight="0.16692668" side_tool="true" weight="0.24055232" />
+      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info id="Image Layers" order="2" />
+      <window_info anchor="right" id="Theme Preview" order="3" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" />
+      <window_info id="Capture Tool" order="2" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="right" id="Capture Analysis" order="3" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info id="UI Designer" order="2" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32917318" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.35101405" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.32917318" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info id="Designer" order="2" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -960,11 +794,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Db/DatabaseAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="7" selection-start-column="7" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="391">
+          <caret line="22" column="9" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -972,16 +803,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="115">
           <caret line="7" column="22" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Servlet/Sync.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="31" column="15" selection-start-line="31" selection-start-column="15" selection-end-line="31" selection-end-column="15" />
+        <state relative-caret-position="167">
+          <caret line="27" selection-start-line="27" selection-end-line="29" selection-end-column="72" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -992,9 +820,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
           <caret line="25" column="8" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="8" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
