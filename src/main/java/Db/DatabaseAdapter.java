@@ -5,7 +5,7 @@ import jdk.nashorn.internal.scripts.JD;
 import java.sql.*;
 public class DatabaseAdapter {
     private static final String JDBC_DRIVER= "com.mysql.jdbc.Driver";
-    private static final String DB_URL = "jdbc:mysql://l22.152.195.134:3306/TEST";
+    private static final String DB_URL = "jdbc:mysql://l22.152.195.134:3306/HeartTrace";
     private static final String USER = "root";
     private static final String PASSWORD = "hearttrace3";
 
@@ -14,7 +14,7 @@ public class DatabaseAdapter {
     public DatabaseAdapter(){
         try{
             Class.forName(JDBC_DRIVER);
-            connection = DriverManager.getConnection("jdbc:mysql://122.152.195.134:3306/TEST?"
+            connection = DriverManager.getConnection("jdbc:mysql://122.152.195.134:3306/HeartTrace?"
                     + "user=root&password=hearttrace3");
             statement = connection.createStatement();
 
