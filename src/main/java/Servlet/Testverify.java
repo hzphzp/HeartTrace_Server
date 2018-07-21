@@ -12,8 +12,10 @@ import java.io.IOException;
 @WebServlet(name = "Servlet.Testverify")
 public class Testverify extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String usernmae = request.getParameter("username");
+        String modelnum = request.getParameter("modelnum");
         String token = request.getParameter("token");
-        JavaWebToken.verifyToken(token);
+        JavaWebToken.verifyToken(token, usernmae, modelnum);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

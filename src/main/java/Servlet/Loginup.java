@@ -24,8 +24,9 @@ public class Loginup extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
+        String modelnum = request.getParameter("modelnum");
         DatabaseAdapter adapter = new DatabaseAdapter();
-        String mysql = "SELECT * FROM User WHERE username =  '" + username +"';";
+        String mysql = "SELECT * FROM UserList WHERE username =  '" + username +"';";
         try {
             ResultSet rs = adapter.statement.executeQuery(mysql);
             if(!rs.next()) {
@@ -55,7 +56,7 @@ public class Loginup extends HttpServlet {
                     LoginBack loginBack = new LoginBack();
                     loginBack.success = true;
                     loginBack.msg = "登录成功，放回token";
-                    loginBack.token = JavaWebToken.createToken();
+                    loginBack.token = JavaWebToken.createToken(username, modelnum);
                     Output.output(gson.toJson(loginBack), response);
                 }
             }

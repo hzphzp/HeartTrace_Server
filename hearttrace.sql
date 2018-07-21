@@ -13,13 +13,13 @@ CREATE TABLE UserList(
 );
 
 CREATE TABLE Diary(
-    anchor INT NOT NULL,
+    anchor BIGINT NOT NULL,
     username CHAR(30) NOT NULL,
     id INT NOT NULL,
     diarybook INT, 
     htmlText VARCHAR(8000),
     text VARCHAR(8000),
-    date INT,
+    date BIGINT,
     islike BOOL,
     letterSpacing FLOAT,
     lineSpacingMultiplier INT,
@@ -30,7 +30,7 @@ CREATE TABLE Diary(
 CREATE UNIQUE INDEX diaryNo ON Diary(username, id);
 
 CREATE TABLE Diarybook(
-    anchor INT NOT NULL,
+    anchor BIGINT NOT NULL,
     username CHAR(30) NOT NULL,
     id INT NOT NULL,
     diarybookName VARCHAR(30),
@@ -39,7 +39,7 @@ CREATE TABLE Diarybook(
 CREATE UNIQUE INDEX diarybookNo ON Diarybook(username, id);
 
 CREATE TABLE DiaryLabel(
-    anchor INT NOT NULL,
+    anchor BIGINT NOT NULL,
     username CHAR(30) NOT NULL,
     id INT NOT NULL,
     diary INT NOT NULL,
@@ -48,7 +48,7 @@ CREATE TABLE DiaryLabel(
 CREATE UNIQUE INDEX diaryLabelNO ON DiaryLabel(username, diary, label);
 
 CREATE TABLE Label(
-    anchor INT NOT NULL,
+    anchor BIGINT NOT NULL,
     username CHAR(30) NOT NULL,
     id INT NOT NULL,   
     labelname VARCHAR(30)
@@ -56,13 +56,13 @@ CREATE TABLE Label(
 CREATE UNIQUE INDEX labelNo on Label(username, id);
 
 CREATE TABLE Sentence(
-    anchor INT NOT NULL,
+    anchor BIGINT NOT NULL,
     username CHAR(30) NOT NULL,
     id INT NOT NULL,
     diarybook INT, 
     htmlText VARCHAR(8000),
     text VARCHAR(8000),
-    date INT,
+    date BIGINT,
     islike BOOL,
     letterSpacing FLOAT,
     lineSpacingMultiplier INT,
@@ -73,7 +73,7 @@ CREATE TABLE Sentence(
 CREATE UNIQUE INDEX sentenceNo ON Sentence(username, id);
 
 CREATE TABLE Sentencebook(
-    anchor INT NOT NULL,
+    anchor BIGINT NOT NULL,
     username CHAR(30) NOT NULL,
     id INT NOT NULL,
     setencebookName VARCHAR(30),
@@ -82,7 +82,7 @@ CREATE TABLE Sentencebook(
 CREATE UNIQUE INDEX sentencebookNo ON Sentencebook(username, id);
 
 CREATE TABLE SentenceLabel(
-    anchor INT NOT NULL,
+    anchor BIGINT NOT NULL,
     username CHAR(30) NOT NULL,
     id INT NOT NULL,
     sentence INT NOT NULL,
@@ -93,13 +93,13 @@ CREATE UNIQUE INDEX sentenceLabelNO ON SentenceLabel(username, sentence, label);
 
 
 CREATE TABLE Diary_delete(
-    anchor INT NOT NULL,
+    anchor BIGINT NOT NULL,
     username CHAR(30) NOT NULL,
     id INT NOT NULL,
     diarybook INT, 
     htmlText VARCHAR(8000),
     text VARCHAR(8000),
-    date INT,
+    date BIGINT,
     islike BOOL,
     letterSpacing FLOAT,
     lineSpacingMultiplier INT,
@@ -110,7 +110,7 @@ CREATE TABLE Diary_delete(
 CREATE UNIQUE INDEX diary_deleteNo ON Diary_delete(username, id);
 
 CREATE TABLE Diarybook_delete(
-    anchor INT NOT NULL,
+    anchor BIGINT NOT NULL,
     username CHAR(30) NOT NULL,
     id INT NOT NULL,
     diarybookName VARCHAR(30),
@@ -119,7 +119,7 @@ CREATE TABLE Diarybook_delete(
 CREATE UNIQUE INDEX diarybook_deleteNo ON Diarybook_delete(username, id);
 
 CREATE TABLE DiaryLabel_delete(
-    anchor INT NOT NULL,
+    anchor BIGINT NOT NULL,
     username CHAR(30) NOT NULL,
     id INT NOT NULL,
     diary INT NOT NULL,
@@ -128,7 +128,7 @@ CREATE TABLE DiaryLabel_delete(
 CREATE UNIQUE INDEX diaryLabel_deleteNO ON DiaryLabel_delete(username, diary, label);
 
 CREATE TABLE Label_delete(
-    anchor INT NOT NULL,
+    anchor BIGINT NOT NULL,
     username CHAR(30) NOT NULL,
     id INT NOT NULL,   
     labelname VARCHAR(30)
@@ -136,13 +136,13 @@ CREATE TABLE Label_delete(
 CREATE UNIQUE INDEX label_deleteNo on Label_delete(username, id);
 
 CREATE TABLE Sentence_delete(
-    anchor INT NOT NULL,
+    anchor BIGINT NOT NULL,
     username CHAR(30) NOT NULL,
     id INT NOT NULL,
     diarybook INT, 
     htmlText VARCHAR(8000),
     text VARCHAR(8000),
-    date INT,
+    date BIGINT,
     islike BOOL,
     letterSpacing FLOAT,
     lineSpacingMultiplier INT,
@@ -153,7 +153,7 @@ CREATE TABLE Sentence_delete(
 CREATE UNIQUE INDEX sentence_deleteNo ON Sentence_delete(username, id);
 
 CREATE TABLE Sentencebook_delete(
-    anchor INT NOT NULL,
+    anchor BIGINT NOT NULL,
     username CHAR(30) NOT NULL,
     id INT NOT NULL,
     setencebookName VARCHAR(30),
@@ -162,7 +162,7 @@ CREATE TABLE Sentencebook_delete(
 CREATE UNIQUE INDEX sentencebook_deleteNo ON Sentencebook_delete(username, id);
 
 CREATE TABLE SentenceLabel_delete(
-    anchor INT NOT NULL,
+    anchor BIGINT NOT NULL,
     username CHAR(30) NOT NULL,
     id INT NOT NULL,
     sentence INT NOT NULL,

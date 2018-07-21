@@ -26,13 +26,22 @@ public class Signin extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
+        if(username.length()>30){
+            //用户名过长
+            Gson gson = new Gson();
+            LoginBack loginBack = new LoginBack();
+            loginBack.success = false;
+            loginBack.msg = "注册失败，用户名过长";
+            loginBack.token = null;
+            Output.output(gson.toJson(loginBack), response);
+        }
         DatabaseAdapter adapter = new DatabaseAdapter();
-        String mysql = "SELECT username FROM User WHERE username =  '" + username +"';";
+        String mysql = "SELECT username FROM UserList WHERE username =  '" + username +"';";
         try {
             ResultSet rs = adapter.statement.executeQuery(mysql);
             if(!rs.next()) {
                 //用户名不存在，可以成功注册
-                mysql = "INSERT INTO User(username, password) VALUES ('" + username + "', '" + password + "');";
+                mysql = "INSERT INTO UserList(username, password) VALUES ('" + username + "', '" + password + "');";
                 adapter.statement.executeUpdate(mysql);
                 Gson gson = new Gson();
                 LoginBack loginBack = new LoginBack();
