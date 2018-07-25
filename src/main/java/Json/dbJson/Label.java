@@ -5,8 +5,7 @@ package Json.dbJson;
 
 public class Label {
     public int status;
-    public long anchor;
     public int id;
-
+    public long anchor;
     public String labelname;
 }

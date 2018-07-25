@@ -30,50 +30,55 @@ public class Sync extends HttpServlet {
         DatabaseAdapter adapter = new DatabaseAdapter();
         Json.Sync syncback = new Json.Sync();
         Gson gson = new Gson();
+        //java.lang.reflect.Type classType = new TypeToken<Json.Sync>() {}.getType();
+        //Json.Sync sync = gson.fromJson(content, classType);
         Json.Sync sync = gson.fromJson(content, Json.Sync.class);
-        for(Diary diary : sync.DiaryList){
-            if(diary.status == 0){
-                Insert.InsertDiary(adapter.statement, diary);
-                diary.anchor = (new Date()).getTime();
-                syncback.DiaryList.add(diary);
-            }
-            else {
-                //该数据不是新增的
-                Diary diary1 = Search.SearchDiary(adapter.statement, username, diary.id);
-                if (diary1 != null) {
-                    //在数据库或者是垃圾箱中找到了这个id
-                    if (diary1.anchor == diary.anchor) {
-                        //这个数据之前同步过了，直接通过status的值进行更新，不会发生冲突
-                        if (diary.status == -1) {
-                            diary.anchor = (new Date()).getTime();
-                            diary1.anchor = diary.anchor;
-                            Delete.deleteDiary(adapter.statement, username, diary);
-                            syncback.DiaryList.add(diary);
-                        }
-                        if (diary.status == 1) {
-                            diary.anchor = (new Date()).getTime();
-                            diary1.anchor = diary.anchor;
-                            Update.updateDiary(adapter.statement, username, diary);
-                            syncback.DiaryList.add(diary);
+        if(sync.DiaryList != null) {
+            for (Diary diary : sync.DiaryList) {
+                if (diary.status == 0) {
+                    Insert.insert(adapter, diary, username, false);
+                    diary.anchor = (new Date()).getTime();
+                    syncback.DiaryList.add(diary);
+                } else {
+                    //该数据不是新增的
+                    Diary diary1 = Search.SearchDiary(adapter.statement, username, diary.id);
+                    if (diary1 != null) {
+                        //在数据库或者是垃圾箱中找到了这个id
+                        if (diary1.anchor == diary.anchor) {
+                            //这个数据之前同步过了，直接通过status的值进行更新，不会发生冲突
+                            if (diary.status == -1) {
+                                diary.anchor = (new Date()).getTime();
+                                diary1.anchor = diary.anchor;
+                                Delete.delete(adapter, Diary.class, username, diary.id, false);
+                                syncback.DiaryList.add(diary);
+                            }
+                            if (diary.status == 1) {
+                                diary.anchor = (new Date()).getTime();
+                                diary1.anchor = diary.anchor;
+                                Update.update(adapter, diary, "username", false);
+                                syncback.DiaryList.add(diary);
+                            }
+                        } else {
+                            //这个数据在之前就没有及时同步，操作时可能发生冲突
+                            if (diary1.status == -1) {
+                                //其他client已经通过同步将这一项删除
+                                diary1.anchor = (new Date()).getTime();
+                                //Update.updateDiary_delete(adapter.statement, username, diary1);
+                                //TODO
+                                syncback.DiaryList.add(diary1);//status为-1，发回本地，让本地删除， 本地删除
+                            } else {
+                                diary1.anchor = (new Date()).getTime();
+                                //Update.updateDiary(adapter.statement, username, diary1);
+                                //TODO
+                                syncback.DiaryList.add(diary1);
+                            }
                         }
                     } else {
-                        //这个数据在之前就没有及时同步，操作时可能发生冲突
-                        if (diary1.status == -1) {
-                            //其他client已经通过同步将这一项删除
-                            diary1.anchor = (new Date()).getTime();
-                            Update.updateDiary_delete(adapter.statement, username, diary1);
-                            syncback.DiaryList.add(diary1);//status为-1，发回本地，让本地删除， 本地删除
-                        } else {
-                            diary1.anchor = (new Date()).getTime();
-                            Update.updateDiary(adapter.statement, username, diary1);
-                            syncback.DiaryList.add(diary1);
-                        }
+                        //在数据库中无法查出这条数据, 出现问题，本地删除
+                        diary.anchor = (new Date()).getTime();
+                        diary.status = -1;
+                        syncback.DiaryList.add(diary);
                     }
-                } else {
-                    //在数据库中无法查出这条数据, 出现问题，本地删除
-                    diary.anchor = (new Date()).getTime();
-                    diary.status = -1;
-                    syncback.DiaryList.add(diary);
                 }
             }
         }
@@ -81,7 +86,7 @@ public class Sync extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Long maxanchor = Long.parseLong(request.getParameter("maxanchor"));
+        /*Long maxanchor = Long.parseLong(request.getParameter("maxanchor"));
         String username = request.getParameter("username");
         String modelnum = request.getParameter("modelnum");
         String token = request.getParameter("token");
@@ -193,7 +198,7 @@ public class Sync extends HttpServlet {
             e.printStackTrace();
         }finally {
             adapter.Destroy();
-        }
+        }*/
     }
 
 }

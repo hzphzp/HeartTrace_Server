@@ -6,9 +6,9 @@ import java.util.Date;
 public class Diary
 {
     public int status;
-    public long anchor;
     public int id;
-    public Diarybook diarybook;
+    public Long anchor;
+    public Diarybook diarybook = new Diarybook();
     public String htmlText;
     public String text;
     public Long date;

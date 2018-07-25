@@ -2,8 +2,8 @@ package Json.dbJson;
 
 public class Diarybook {
     public int status;
-    public long anchor;
     public int id;
+    public long anchor;
     public String diarybookName;
     public String description;
 }
