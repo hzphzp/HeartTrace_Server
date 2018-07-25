@@ -54,6 +54,9 @@ public class Search {
                 for (Field field : cls.getDeclaredFields()) {
                     if(index == 1){
                         field.set(t, 9);
+                        if(delete){
+                            field.set(t, -1);
+                        }
                         index++;
                         continue;
                     }
