@@ -31,9 +31,9 @@ public class InsertTest {
         Diarybook diarybook = new Diarybook();
         diary.status = 9;
         diary.anchor = (new Date()).getTime();
-        diary.id = 1;
+        diary.id = 2;
         diary.text = "just for test";
-        diarybook.id = 100;
+        diarybook.id = 2;
         diary.diarybook = diarybook;
 
         DatabaseAdapter adapter = new DatabaseAdapter();
@@ -42,12 +42,12 @@ public class InsertTest {
         Insert.insert(adapter, diarybook, "huangzp", false);
         Insert.insert(adapter, diarybook, "huangzp", true);
         Label label = new Label();
-        label.id = 1;
+        label.id = 2;
         label.labelname = "test";
         Insert.insert(adapter, label, "huangzp", false);
         Insert.insert(adapter, label, "huangzp", true);
         DiaryLabel diaryLabel = new DiaryLabel();
-        diaryLabel.id = 1;
+        diaryLabel.id = 2;
         diaryLabel.diary = diary;
         diaryLabel.label = label;
         Insert.insert(adapter, diaryLabel, "huangzp", false);
@@ -58,9 +58,9 @@ public class InsertTest {
         Sentencebook sentencebook = new Sentencebook();
         sentence.status = 9;
         sentence.anchor = (new Date()).getTime();
-        sentence.id = 1;
+        sentence.id = 2;
         sentence.text = "just for test";
-        sentencebook.id = 100;
+        sentencebook.id = 2;
         sentence.sentencebook = sentencebook;
 
         Insert.insert(adapter, sentence, "huangzp", false);
@@ -68,7 +68,7 @@ public class InsertTest {
         Insert.insert(adapter, sentencebook, "huangzp", false);
         Insert.insert(adapter, sentencebook, "huangzp", true);
         SentenceLabel sentenceLabel = new SentenceLabel();
-        sentenceLabel.id = 1;
+        sentenceLabel.id = 2;
         sentenceLabel.sentence = sentence;
         sentenceLabel.label = label;
         Insert.insert(adapter, sentenceLabel, "huangzp", false);

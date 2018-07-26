@@ -6,6 +6,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.List;
+
 import static org.junit.Assert.*;
 
 public class SearchTest {
@@ -44,5 +46,23 @@ public class SearchTest {
         Sentence sentence = Search.search(adapter, Sentence.class, "huangzp", 1, true);
         Sentencebook sentencebook = Search.search(adapter, Sentencebook.class, "huangzp", 100, true);
         SentenceLabel sentenceLabel = Search.search(adapter, SentenceLabel.class, "huangzp", 1, true);
+    }
+
+    @Test
+    public void createSqlForGet() {
+       //System.out.println(Search.createSqlForGet(Diary.class));
+    }
+
+    @Test
+    public void searchForGet() {
+        DatabaseAdapter adapter = new DatabaseAdapter();
+        List<Diary> diaryList = Search.searchForGet(adapter, Diary.class, -1L);
+        List<Diarybook> diarybookList = Search.searchForGet(adapter, Diarybook.class, -1L);
+        List<DiaryLabel> diaryLabelList = Search.searchForGet(adapter, DiaryLabel.class, -1L);
+        List<Label> labelList = Search.searchForGet(adapter, Label.class, -1L);
+        List<Sentence> sentenceList = Search.searchForGet(adapter, Sentence.class, -1L);
+        List<Sentencebook> sentencebookList = Search.searchForGet(adapter, Sentencebook.class, -1L);
+        List<SentenceLabel> sentenceLabelList = Search.searchForGet(adapter, SentenceLabel.class, -1L);
+
     }
 }

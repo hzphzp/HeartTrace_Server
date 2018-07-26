@@ -14,10 +14,10 @@ public class DatabaseAdapter {
     public DatabaseAdapter(){
         try{
             Class.forName(JDBC_DRIVER);
-            //connection = DriverManager.getConnection("jdbc:mysql://122.152.195.134:3306/HeartTrace?"
-                    //+ "user=root&password=hearttrace3");
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/HeartTrace?"
-                    + "user=root&password=huangzp");
+            connection = DriverManager.getConnection("jdbc:mysql://122.152.195.134:3306/HeartTrace?"
+                    + "user=root&password=hearttrace3");
+            //connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/HeartTrace?"
+                    //+ "user=root&password=huangzp");
             statement = connection.createStatement();
 
         }catch(SQLException se){

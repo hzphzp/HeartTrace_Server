@@ -9,28 +9,30 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Search {
-    public static Diary SearchDiary(Statement statement, String username, int id){
-        String sql = "SELECT * FORM Diary WHERE username = \"/s\" AND id = %d".format(username, id);
-        Diary diary = null;
+    public static <T> List<T> searchForGet(DatabaseAdapter adapter, Class<T> cls, Long anchor){
+        List<T> list = new ArrayList<T>();
         try{
-            ResultSet rs = statement.executeQuery(sql);
-            if(rs.next()){
-                diary = SqltoJson.toDiary(rs);
-                diary.status = 9;
-            }
-            else{
-                sql = "SELECT * FORM Diary_delete WHERE username = \"/s\" AND id = %d".format(username, id);
-                rs = statement.executeQuery(sql);
-                if(rs.next()){
-                    diary = SqltoJson.toDiary(rs);
-                    diary.status = -1;
+            PreparedStatement pstm = adapter.connection.prepareStatement(createSqlForGet(cls));
+            pstm.setLong(1, anchor);
+            ResultSet rs = pstm.executeQuery();
+            while (rs.next()){
+                T t = cls.newInstance();
+                int index = 1;
+                for(Field field : cls.getDeclaredFields()){
+                    if(index == 1){
+                        field.set(t, 9);
+                        index++;
+                        continue;
+                    }
+                    field.setAccessible(true);
+                    fieldSet(rs, (T) t, field);
+                    index++;
                 }
-                else{
-                    //在数据库中查找不到相关的数据
-                    diary = null;
-                }
+                list.add(t);
             }
         }catch(SQLException se){
             // 处理 JDBC 错误
@@ -38,9 +40,23 @@ public class Search {
         }catch(Exception e){
             // 处理 Class.forName 错误
             e.printStackTrace();
+        }finally {
+            return list;
         }
-        return diary;
+
     }
+
+    private static <T> void fieldSet(ResultSet rs, T t, Field field) throws IllegalAccessException, NoSuchFieldException, SQLException {
+        try {
+            field.set(t, rs.getObject(field.getName()));
+        }catch (Exception mye){
+            Object obj = field.get(t);
+            Field field1 = obj.getClass().getDeclaredField("id");
+            field1.set(obj, rs.getObject(field.getName()));
+            field.set(t, obj);
+        }
+    }
+
     public static <T> T search(DatabaseAdapter adapter, Class<T> cls, String username, int id, boolean delete){
         T t = null;
         try {
@@ -61,14 +77,7 @@ public class Search {
                         continue;
                     }
                     field.setAccessible(true);
-                    try {
-                        field.set(t, rs.getObject(field.getName()));
-                    }catch (Exception mye){
-                        Object obj = field.get(t);
-                        Field field1 = obj.getClass().getDeclaredField("id");
-                        field1.set(obj, rs.getObject(field.getName()));
-                        field.set(t, obj);
-                    }
+                    fieldSet(rs, (T) t, field);
                     index++;
                 }
             }
@@ -91,6 +100,11 @@ public class Search {
         else {
             sql = "SELECT * FROM " + cls.getSimpleName()+ "_delete" + " WHERE username = ? AND id = ?";
         }
+        return sql;
+    }
+    private static String createSqlForGet(Class<?> cls){
+        String sql;
+        sql = "SELECT * FROM " + cls.getSimpleName() +  " WHERE anchor > ?";
         return sql;
     }
 }
