@@ -42,14 +42,14 @@ public class SyncTest {
         DatabaseAdapter adapter = new DatabaseAdapter();
         Diary diary = new Diary();
         diary.status = 9;
-        diary.anchor = (new Date()).getTime();
-        diary.id = 8;
+        diary.modified = (new Date()).getTime();
+        diary.id = 17L;
         diary.text = "test for post";
         Diarybook diarybook = new Diarybook();
         diarybook.status = 9;
-        diarybook.anchor = (new Date()).getTime();
+        diarybook.modified = (new Date()).getTime();
         diarybook.diarybookName = "test for post";
-        diarybook.id = 8;
+        diarybook.id = 17L;
         diary.diarybook = diarybook;
         diary.status = 0;
         diarybook.status = 0;
@@ -64,28 +64,29 @@ public class SyncTest {
                 ".eyJhdWQiOiJodWFuZ3pwIiwic3ViIjoiaG9ub3I3IiwiaXNzIjoiaHVhbmd6cCJ9" +
                 ".8iY9N5TvSdKUtU6IUxsJCg2OX6unfM3kiJNHVAL5duw");
         map.put("content", content);
+        map.put("anchor", "-1");
         String result;
-        //String result = HttpForTest.sendPost("http://localhost:8080/Servlet.Sync", map);
+        //result = HttpForTest.sendPost("http://localhost:8080/Servlet.Sync1", map);
         diary.text = "update";
         diarybook.diarybookName = "update";
-        diary.anchor = 1532576482991L;
+        diary.modified = 1532576482991L;
         diary.status = 1;
-        diarybook.anchor = 1532576483099L;
+        diarybook.modified = 1532576483099L;
         diarybook.status = 1;
         sync.DiaryList.set(0, diary);
         sync.DiarybookList.set(0, diarybook);
         String content1 = gson.toJson(sync);
         boolean b = map.replace("content", content, content1);
-        //result = HttpForTest.sendPost("http://localhost:8080/Servlet.Sync", map);
-        diary.anchor = 1532577901849L;
-        diarybook.anchor = 1532577901973L;
+        //result = HttpForTest.sendPost("http://localhost:8080/Servlet.Sync1", map);
+        diary.modified =     2000000000000L;
+        diarybook.modified = 2000000000000L;
         diary.status = -1;
         diarybook.status = -1;
         sync.DiaryList.set(0, diary);
         sync.DiarybookList.set(0, diarybook);
         String content2 = gson.toJson(sync);
         b = map.replace("content", content1, content2);
-        result = HttpForTest.sendPost("http://localhost:8080/Servlet.Sync", map);
+        result = HttpForTest.sendPost("http://localhost:8080/Servlet.Sync1", map);
 
     }
 
@@ -95,7 +96,7 @@ public class SyncTest {
                 "&modelnum=honor7" +
                 "&token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJodWFuZ3pwIiwic3ViIjoiaG9ub3I3IiwiaXNzIjoiaHVhbmd6cCJ9." +
                 "8iY9N5TvSdKUtU6IUxsJCg2OX6unfM3kiJNHVAL5duw" +
-                "&maxanchor=-1"));
+                "&maxmodified=-1"));
 
 
     }

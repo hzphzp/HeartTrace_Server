@@ -26,24 +26,24 @@ public class DeleteTest {
     public void delete() {
         boolean flag = false;
         DatabaseAdapter adapter = new DatabaseAdapter();
-        flag = Delete.delete(adapter, Diary.class, "huangzp", 1, false);
-        flag = Delete.delete(adapter, Diarybook.class, "huangzp", 100, false);
-        flag = Delete.delete(adapter, DiaryLabel.class, "huangzp", 1, false);
-        flag = Delete.delete(adapter, Label.class, "huangzp", 1, false);
-        flag = Delete.delete(adapter, Sentence.class, "huangzp", 1, false);
-        flag = Delete.delete(adapter, Sentencebook.class, "huangzp", 100, false);
-        flag = Delete.delete(adapter, SentenceLabel.class, "huangzp", 1, false);
+        flag = Delete.delete(adapter, Diary.class, "huangzp", 2, false);
+        flag = Delete.delete(adapter, Diarybook.class, "huangzp", 2, false);
+        flag = Delete.delete(adapter, DiaryLabel.class, "huangzp", 2, false);
+        flag = Delete.delete(adapter, Label.class, "huangzp", 2, false);
+        flag = Delete.delete(adapter, Sentence.class, "huangzp", 2, false);
+        flag = Delete.delete(adapter, Sentencebook.class, "huangzp", 2, false);
+        flag = Delete.delete(adapter, SentenceLabel.class, "huangzp", 2, false);
     }
     @Test
     public void delete_d() {
         boolean flag = false;
         DatabaseAdapter adapter = new DatabaseAdapter();
-        flag = Delete.delete(adapter, Diary.class, "huangzp", 1, true);
-        flag = Delete.delete(adapter, Diarybook.class, "huangzp", 100, true);
-        flag = Delete.delete(adapter, DiaryLabel.class, "huangzp", 1, true);
-        flag = Delete.delete(adapter, Label.class, "huangzp", 1, true);
-        flag = Delete.delete(adapter, Sentence.class, "huangzp", 1, true);
-        flag = Delete.delete(adapter, Sentencebook.class, "huangzp", 100, true);
-        flag = Delete.delete(adapter, SentenceLabel.class, "huangzp", 1, true);
+        flag = Delete.delete(adapter, Diary.class, "huangzp", 2, true);
+        flag = Delete.delete(adapter, Diarybook.class, "huangzp", 2, true);
+        flag = Delete.delete(adapter, DiaryLabel.class, "huangzp", 2, true);
+        flag = Delete.delete(adapter, Label.class, "huangzp", 2, true);
+        flag = Delete.delete(adapter, Sentence.class, "huangzp", 2, true);
+        flag = Delete.delete(adapter, Sentencebook.class, "huangzp", 2, true);
+        flag = Delete.delete(adapter, SentenceLabel.class, "huangzp", 2, true);
     }
 }

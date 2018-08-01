@@ -12,14 +12,14 @@ public class GenJson {
         Sync sync = new Sync();
         Diary diary = new Diary();
         diary.status = 0;
-        diary.anchor = (long) 7;
-        diary.id = 1;
+        diary.modified = (long) 7;
+        diary.id = 1L;
         diary.text = "huangzp is the best";
         diary.date = new Date().getTime();
         Diarybook diarybook = new Diarybook();
         diarybook.status = 0;
-        diarybook.anchor = 1;
-        diarybook.id = 2;
+        diarybook.modified = 1;
+        diarybook.id = 2L;
         diarybook.diarybookName = "happy";
         diary.diarybook = diarybook;
         sync.DiaryList.add(diary);

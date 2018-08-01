@@ -6,6 +6,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.Date;
+
 import static org.junit.Assert.*;
 
 public class UpdateTest {
@@ -25,30 +27,31 @@ public class UpdateTest {
 
     @Test
     public void update() {
+        long now = (new Date()).getTime();
         DatabaseAdapter adapter = new DatabaseAdapter();
         boolean flag = false;
-        Diary diary = Search.search(adapter, Diary.class, "huangzp", 1, false);
+        Diary diary = Search.search(adapter, Diary.class, "huangzp", 10L, false);
         diary.text = "update";
-        flag = Update.update(adapter, diary, "huangzp", false);
-        Diarybook diarybook = Search.search(adapter, Diarybook.class, "huangzp", 100, false);
+        flag = Update.update(adapter, diary, "huangzp", now, false);
+        Diarybook diarybook = Search.search(adapter, Diarybook.class, "huangzp", 10L, false);
         diarybook.diarybookName = "update";
-        flag = Update.update(adapter, diarybook, "huangzp", false);
-        DiaryLabel diaryLabel = Search.search(adapter, DiaryLabel.class, "huangzp", 1, false);
+        flag = Update.update(adapter, diarybook, "huangzp", now, false);
+        DiaryLabel diaryLabel = Search.search(adapter, DiaryLabel.class, "huangzp", 10L, false);
         diaryLabel.status = 1;
-        flag = Update.update(adapter, diaryLabel, "huangzp", false);
+        flag = Update.update(adapter, diaryLabel, "huangzp", now, false);
 
-        Label label = Search.search(adapter, Label.class, "huangzp", 1, false);
+        Label label = Search.search(adapter, Label.class, "huangzp", 10L, false);
         label.labelname = "update";
-        flag = Update.update(adapter, label, "huangzp", false);
-        Sentence sentence = Search.search(adapter, Sentence.class, "huangzp", 1, false);
+        flag = Update.update(adapter, label, "huangzp", now, false);
+        Sentence sentence = Search.search(adapter, Sentence.class, "huangzp", 10L, false);
         sentence.text = "update";
-        flag = Update.update(adapter, sentence, "huangzp", false);
-        Sentencebook sentencebook = Search.search(adapter, Sentencebook.class, "huangzp", 100, false);
+        flag = Update.update(adapter, sentence, "huangzp", now, false);
+        Sentencebook sentencebook = Search.search(adapter, Sentencebook.class, "huangzp", 10L, false);
         sentencebook.sentencebookName = "update";
-        flag = Update.update(adapter, sentencebook, "huangzp", false);
-        SentenceLabel sentenceLabel = Search.search(adapter, SentenceLabel.class, "huangzp", 1, false);
+        flag = Update.update(adapter, sentencebook, "huangzp", now, false);
+        SentenceLabel sentenceLabel = Search.search(adapter, SentenceLabel.class, "huangzp", 10L, false);
         sentenceLabel.status = 1;
-        flag = Update.update(adapter, sentenceLabel, "huangzp", false);
+        flag = Update.update(adapter, sentenceLabel, "huangzp", now, false);
 
     }
 
@@ -56,29 +59,30 @@ public class UpdateTest {
     public void update_delete() {
         DatabaseAdapter adapter = new DatabaseAdapter();
         boolean flag = true;
-        Diary diary = Search.search(adapter, Diary.class, "huangzp", 1, true);
+        long now = (new Date()).getTime();
+        Diary diary = Search.search(adapter, Diary.class, "huangzp", 10L, true);
         diary.text = "update";
-        flag = Update.update(adapter, diary, "huangzp", true);
-        Diarybook diarybook = Search.search(adapter, Diarybook.class, "huangzp", 100, true);
+        flag = Update.update(adapter, diary, "huangzp", now, true);
+        Diarybook diarybook = Search.search(adapter, Diarybook.class, "huangzp", 10L, true);
         diarybook.diarybookName = "update";
-        flag = Update.update(adapter, diarybook, "huangzp", true);
-        DiaryLabel diaryLabel = Search.search(adapter, DiaryLabel.class, "huangzp", 1, true);
+        flag = Update.update(adapter, diarybook, "huangzp", now, true);
+        DiaryLabel diaryLabel = Search.search(adapter, DiaryLabel.class, "huangzp", 10L, true);
         diaryLabel.status = 1;
-        flag = Update.update(adapter, diaryLabel, "huangzp", true);
+        flag = Update.update(adapter, diaryLabel, "huangzp", now , true);
 
-        Label label = Search.search(adapter, Label.class, "huangzp", 1, true);
+        Label label = Search.search(adapter, Label.class, "huangzp", 10L, true);
         label.labelname = "update";
-        flag = Update.update(adapter, label, "huangzp", true);
+        flag = Update.update(adapter, label, "huangzp", now, true);
 
-        Sentence sentence = Search.search(adapter, Sentence.class, "huangzp", 1, true);
+        Sentence sentence = Search.search(adapter, Sentence.class, "huangzp", 10L, true);
         sentence.text = "update";
-        flag = Update.update(adapter, sentence, "huangzp", true);
-        Sentencebook sentencebook = Search.search(adapter, Sentencebook.class, "huangzp", 100, true);
+        flag = Update.update(adapter, sentence, "huangzp", now, true);
+        Sentencebook sentencebook = Search.search(adapter, Sentencebook.class, "huangzp", 10L, true);
         sentencebook.sentencebookName = "update";
-        flag = Update.update(adapter, sentencebook, "huangzp", true);
-        SentenceLabel sentenceLabel = Search.search(adapter, SentenceLabel.class, "huangzp", 1, true);
+        flag = Update.update(adapter, sentencebook, "huangzp", now, true);
+        SentenceLabel sentenceLabel = Search.search(adapter, SentenceLabel.class, "huangzp", 10L, true);
         sentenceLabel.status = 1;
-        flag = Update.update(adapter, sentenceLabel, "huangzp", true);
+        flag = Update.update(adapter, sentenceLabel, "huangzp", now, true);
 
     }
 }

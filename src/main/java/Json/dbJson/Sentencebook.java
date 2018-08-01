@@ -2,8 +2,8 @@ package Json.dbJson;
 
 public class Sentencebook {
     public int status;
-    public int id;
-    public long anchor;
+    public long id;
+    public long modified;
     public String sentencebookName;
     public String description;
 }

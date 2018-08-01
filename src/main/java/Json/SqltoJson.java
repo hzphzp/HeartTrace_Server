@@ -10,9 +10,9 @@ public class SqltoJson {
         //status默认设置成为9
         Diary diary = new Diary();
         try {
-            diary.anchor = rs.getLong("anchor");
+            diary.modified = rs.getLong("modified");
             diary.status = 9;
-            diary.id = rs.getInt("id");
+            diary.id = rs.getLong("id");
             diary.diarybook.id = rs.getInt("diarybook");
             diary.htmlText = rs.getString("htmlText");
             diary.text = rs.getString("text");
@@ -38,7 +38,7 @@ public class SqltoJson {
         Diarybook diarybook = new Diarybook();
         try{
             diarybook.status = 9;
-            diarybook.anchor = rs.getLong("anchor");
+            diarybook.modified = rs.getLong("modified");
             diarybook.id = rs.getInt("id");
             diarybook.diarybookName = rs.getString("diarybookName");
             diarybook.description = rs.getString("description");
@@ -57,10 +57,10 @@ public class SqltoJson {
         DiaryLabel diaryLabel = new DiaryLabel();
         try{
             diaryLabel.status = 9;
-            diaryLabel.anchor = rs.getLong("anchor");
+            diaryLabel.modified = rs.getLong("modified");
             diaryLabel.id = rs.getInt("id");
             diaryLabel.diary = new Diary();
-            diaryLabel.diary.id = rs.getInt("diary");
+            diaryLabel.diary.id = rs.getLong("diary");
             diaryLabel.label = new Label();
             diaryLabel.label.id = rs.getInt("label");
         }catch (SQLException se) {
@@ -78,7 +78,7 @@ public class SqltoJson {
         Label label = new Label();
         try{
             label.status = 9;
-            label.anchor = rs.getLong("anchor");
+            label.modified = rs.getLong("modified");
             label.id = rs.getInt("id");
             label.labelname = rs.getString("labelname");
         }catch (SQLException se) {
@@ -96,7 +96,7 @@ public class SqltoJson {
         //status默认设置成为9
         Sentence sentence = new Sentence();
         try {
-            sentence.anchor = rs.getLong("anchor");
+            sentence.modified = rs.getLong("modified");
             sentence.status = 9;
             sentence.id = rs.getInt("id");
             sentence.sentencebook.id = rs.getInt("sentencebook");
@@ -123,7 +123,7 @@ public class SqltoJson {
         Sentencebook sentencebook = new Sentencebook();
         try{
             sentencebook.status = 9;
-            sentencebook.anchor = rs.getLong("anchor");
+            sentencebook.modified = rs.getLong("modified");
             sentencebook.id = rs.getInt("id");
             sentencebook.sentencebookName = rs.getString("sentencebookName");
             sentencebook.description = rs.getString("description");
@@ -142,7 +142,7 @@ public class SqltoJson {
         SentenceLabel sentenceLabel = new SentenceLabel();
         try{
             sentenceLabel.status = 9;
-            sentenceLabel.anchor = rs.getLong("anchor");
+            sentenceLabel.modified = rs.getLong("modified");
             sentenceLabel.id = rs.getInt("id");
             sentenceLabel.sentence = new Sentence();
             sentenceLabel.sentence.id = rs.getInt("sentence");

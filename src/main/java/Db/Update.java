@@ -9,7 +9,7 @@ import java.sql.Statement;
 
 public class Update {
 
-    public static<T> boolean update(DatabaseAdapter adapter, T cls, String username, boolean delete){
+    public static<T> boolean update(DatabaseAdapter adapter, T cls, String username, long anchor, boolean delete){
         boolean flag = false;
         try{
             PreparedStatement pstm = adapter.connection.prepareStatement(createSql(cls.getClass(), delete));
@@ -25,8 +25,9 @@ public class Update {
                 setObject(pstm, index, obj);
                 index++;
             }
-            pstm.setString(index, username);
-            pstm.setObject(index+1, cls.getClass().getField("id").get(cls));
+            pstm.setLong(index, anchor);//增加anchor这一想的的填坑
+            pstm.setString(index+1, username);
+            pstm.setObject(index+2, cls.getClass().getField("id").get(cls));
             int result = pstm.executeUpdate();
             flag = result > 0;
         }catch(SQLException se){
@@ -46,7 +47,7 @@ public class Update {
             pstm.setObject(index, obj);
         }catch(Exception nse){
             field = obj.getClass().getField("id");
-            int id = field.getInt(obj);
+            long id = field.getLong(obj);
             pstm.setObject(index, id);
         }
     }
@@ -64,6 +65,7 @@ public class Update {
             str += field.getName() + "=?, ";
             index++;
         }
+        str += "anchor=?, ";
         str = str.substring(0, str.length()-2);
         if(!delete) {
             sql = "UPDATE " + cls.getSimpleName() + " SET " + str + " WHERE username = ? AND id = ?";

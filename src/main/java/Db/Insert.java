@@ -10,7 +10,7 @@ import java.sql.Statement;
 import java.text.MessageFormat;
 
 public class Insert {
-    public static <T> boolean insert(DatabaseAdapter adapter, T cls, String username, boolean delete){
+    public static <T> boolean insert(DatabaseAdapter adapter, T cls, String username, Long anchor, boolean delete){
         boolean flag = false;
         try {
             PreparedStatement pstm = adapter.connection.prepareStatement(createSql(cls.getClass(), delete));
@@ -27,6 +27,7 @@ public class Insert {
                 Update.setObject(pstm, index, obj);
                 index++;
             }
+            pstm.setLong(index, anchor);//增加anchor这一项
             int result = pstm.executeUpdate();
             flag = result > 0;
         }catch (SQLException se){
@@ -44,6 +45,7 @@ public class Insert {
         for(Field s : cls.getDeclaredFields()){
             str += "?, ";
         }
+        str +="?, ";//增加anchor的位置
         str = str.substring(0, str.length()-2);
         String sql;
         if(!delete) {

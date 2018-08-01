@@ -4,12 +4,12 @@ import java.util.Date;
 
 public class Sentence {
     public int status;
-    public int id;
-    public long anchor;
+    public long id;
+    public long modified;
     public Sentencebook sentencebook = new Sentencebook();
     public String htmlText;
     public String text;
-    public Long date;
+    public long date;
     public boolean islike = false;
     public float letterSpacing = (float)0.2;
     public int lineSpacingMultiplier = 0;

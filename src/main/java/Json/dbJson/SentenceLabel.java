@@ -5,8 +5,8 @@ import Json.dbJson.Sentence;
 
 public class SentenceLabel {
     public int status;
-    public int id;
-    public long anchor;
+    public long id;
+    public long modified;
     public Sentence sentence = new Sentence();
     public Label label = new Label();
 }

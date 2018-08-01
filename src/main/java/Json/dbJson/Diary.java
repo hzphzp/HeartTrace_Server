@@ -6,12 +6,12 @@ import java.util.Date;
 public class Diary
 {
     public int status;
-    public int id;
-    public Long anchor;
+    public long id;
+    public long modified;
     public Diarybook diarybook = new Diarybook();
     public String htmlText;
     public String text;
-    public Long date;
+    public long date;
     public boolean islike = false;
     public float letterSpacing = (float)0.2;
     public int lineSpacingMultiplier = 0;

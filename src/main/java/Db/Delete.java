@@ -9,12 +9,12 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class Delete {
-    public static boolean delete(DatabaseAdapter adapter, Class<?> cls, String username, int id, boolean delete) {
+    public static boolean delete(DatabaseAdapter adapter, Class<?> cls, String username, long id, boolean delete) {
         boolean flag = false;
         try{
             PreparedStatement pstm = adapter.connection.prepareStatement(createSql(cls, delete));
             pstm.setString(1, username);
-            pstm.setInt(2, id);
+            pstm.setLong(2, id);
             int result = pstm.executeUpdate();
             flag = result > 0;
         }catch(SQLException se){

@@ -26,43 +26,62 @@ public class SearchTest {
     }
 
     @Test
-    public void search() {
+    public void search_anchor() {
         DatabaseAdapter adapter = new DatabaseAdapter();
-        Diary diary = Search.search(adapter, Diary.class,"huangzp", 1, false);
-        Diarybook diarybook = Search.search(adapter, Diarybook.class, "huangzp", 100, false);
-        DiaryLabel diaryLabel = Search.search(adapter, DiaryLabel.class, "huangzp", 1, false);
-        Label label = Search.search(adapter, Label.class, "huangzp", 1, false);
-        Sentence sentence = Search.search(adapter, Sentence.class, "huangzp", 1, false);
-        Sentencebook sentencebook = Search.search(adapter, Sentencebook.class, "huangzp", 100, false);
-        SentenceLabel sentenceLabel = Search.search(adapter, SentenceLabel.class, "huangzp", 1, false);
+        long result;
+        result = Search.search_anchor(adapter, Diary.class, "huangzp", 10L, false);
+        result = Search.search_anchor(adapter, Diarybook.class, "huangzp", 10L, false);
+        result = Search.search_anchor(adapter, DiaryLabel.class, "huangzp", 10L, false);
+        result = Search.search_anchor(adapter, Label.class, "huangzp", 10L, false);
+        result = Search.search_anchor(adapter, Sentence.class, "huangzp", 10L, false);
+        result = Search.search_anchor(adapter, Sentencebook.class, "huangzp", 10L, false);
+        result = Search.search_anchor(adapter, SentenceLabel.class, "huangzp", 10L, false);
     }
+
     @Test
     public void search_delete() {
         DatabaseAdapter adapter = new DatabaseAdapter();
-        Diary diary = Search.search(adapter, Diary.class,"huangzp", 1, true);
-        Diarybook diarybook = Search.search(adapter, Diarybook.class, "huangzp", 100, true);
-        DiaryLabel diaryLabel = Search.search(adapter, DiaryLabel.class, "huangzp", 1, true);
-        Label label = Search.search(adapter, Label.class, "huangzp", 1, true);
-        Sentence sentence = Search.search(adapter, Sentence.class, "huangzp", 1, true);
-        Sentencebook sentencebook = Search.search(adapter, Sentencebook.class, "huangzp", 100, true);
-        SentenceLabel sentenceLabel = Search.search(adapter, SentenceLabel.class, "huangzp", 1, true);
+        long result;
+        result = Search.search_anchor(adapter, Diary.class, "huangzp", 10L, true);
+        result = Search.search_anchor(adapter, Diarybook.class, "huangzp", 10L, true);
+        result = Search.search_anchor(adapter, DiaryLabel.class, "huangzp", 10L, true);
+        result = Search.search_anchor(adapter, Label.class, "huangzp", 10L, true);
+        result = Search.search_anchor(adapter, Sentence.class, "huangzp", 10L, true);
+        result = Search.search_anchor(adapter, Sentencebook.class, "huangzp", 10L, true);
+        result = Search.search_anchor(adapter, SentenceLabel.class, "huangzp", 10L, true);
     }
 
     @Test
     public void createSqlForGet() {
-       //System.out.println(Search.createSqlForGet(Diary.class));
+        //System.out.println(Search.createSqlForGet(Diary.class));
     }
 
     @Test
     public void searchForGet() {
         DatabaseAdapter adapter = new DatabaseAdapter();
-        List<Diary> diaryList = Search.searchForGet(adapter, Diary.class, -1L);
-        List<Diarybook> diarybookList = Search.searchForGet(adapter, Diarybook.class, -1L);
-        List<DiaryLabel> diaryLabelList = Search.searchForGet(adapter, DiaryLabel.class, -1L);
-        List<Label> labelList = Search.searchForGet(adapter, Label.class, -1L);
-        List<Sentence> sentenceList = Search.searchForGet(adapter, Sentence.class, -1L);
-        List<Sentencebook> sentencebookList = Search.searchForGet(adapter, Sentencebook.class, -1L);
-        List<SentenceLabel> sentenceLabelList = Search.searchForGet(adapter, SentenceLabel.class, -1L);
+        List<Diary> diaryList = Search.searchWithAnchor(adapter, Diary.class, -1L);
+        List<Diarybook> diarybookList = Search.searchWithAnchor(adapter, Diarybook.class, -1L);
+        List<DiaryLabel> diaryLabelList = Search.searchWithAnchor(adapter, DiaryLabel.class, -1L);
+        List<Label> labelList = Search.searchWithAnchor(adapter, Label.class, -1L);
+        List<Sentence> sentenceList = Search.searchWithAnchor(adapter, Sentence.class, -1L);
+        List<Sentencebook> sentencebookList = Search.searchWithAnchor(adapter, Sentencebook.class, -1L);
+        List<SentenceLabel> sentenceLabelList = Search.searchWithAnchor(adapter, SentenceLabel.class, -1L);
 
     }
+
+    @Test
+    public void search() {
+        DatabaseAdapter adapter = new DatabaseAdapter();
+        Diary diary = Search.search(adapter, Diary.class, "huangzp", 10L, false);
+        Diarybook diarybook = Search.search(adapter, Diarybook.class, "huangzp", 10L, false);
+        DiaryLabel diaryLabel = Search.search(adapter, DiaryLabel.class, "huangzp", 10L, false);
+        Label label = Search.search(adapter, Label.class, "huangzp", 10L, false);
+        Sentence sentence = Search.search(adapter, Sentence.class, "huangzp", 10L, false);
+        Sentencebook sentencebook = Search.search(adapter, Sentencebook.class, "huangzp", 10L, false);
+        SentenceLabel sentenceLabel = Search.search(adapter, SentenceLabel.class, "huangzp", 10L, false);
+    }
+
+
+
+
 }

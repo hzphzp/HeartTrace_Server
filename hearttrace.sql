@@ -5,17 +5,19 @@ USE HeartTrace;
 CREATE TABLE UserList(
     username CHAR(30) NOT NULL PRIMARY KEY,
     password VARCHAR(30) NOT NULL,
-    age INT,
-    gender BOOL,
-    school VARCHAR(30) ,
-    address VARCHAR(100),
-    phone VARCHAR(15)
+    nickname VARCHAR(30),
+    gender CHAR(10),
+    birthday VARCHAR (30),
+    email VARCHAR (30),
+    school VARCHAR (30),
+    signature VARCHAR (300),
+    headimage VARCHAR (1000)
 );
 
 CREATE TABLE Diary(
     username CHAR(30) NOT NULL,
-    id INT NOT NULL,
-    anchor BIGINT NOT NULL,
+    id BIGINT NOT NULL,
+    modified BIGINT NOT NULL,
     diarybook INT,
     htmlText VARCHAR(8000),
     text VARCHAR(8000),
@@ -25,40 +27,44 @@ CREATE TABLE Diary(
     lineSpacingMultiplier INT,
     lineSpacingExtra INT,
     textSize FLOAT,
-    textAlignment INT
+    textAlignment INT,
+    anchor BIGINT NOT NULL
 );
 CREATE UNIQUE INDEX diaryNo ON Diary(username, id);
 
 CREATE TABLE Diarybook(
     username CHAR(30) NOT NULL,
-    id INT NOT NULL,
-    anchor BIGINT NOT NULL,
+    id BIGINT NOT NULL,
+    modified BIGINT NOT NULL,
     diarybookName VARCHAR(30),
-    description VARCHAR(1000)
+    description VARCHAR(1000),
+    anchor BIGINT NOT NULL
 );
 CREATE UNIQUE INDEX diarybookNo ON Diarybook(username, id);
 
 CREATE TABLE DiaryLabel(
     username CHAR(30) NOT NULL,
-    id INT NOT NULL,
-    anchor BIGINT NOT NULL,
+    id BIGINT NOT NULL,
+    modified BIGINT NOT NULL,
     diary INT NOT NULL,
-    label INT NOT NULL
+    label INT NOT NULL,
+    anchor BIGINT NOT NULL
 );
 CREATE UNIQUE INDEX diaryLabelNO ON DiaryLabel(username, diary, label);
 
 CREATE TABLE Label(
     username CHAR(30) NOT NULL,
-    id INT NOT NULL,   
-    anchor BIGINT NOT NULL,
-    labelname VARCHAR(30)
+    id BIGINT NOT NULL,
+    modified BIGINT NOT NULL,
+    labelname VARCHAR(30),
+    anchor BIGINT NOT NULL
 );
 CREATE UNIQUE INDEX labelNo on Label(username, id);
 
 CREATE TABLE Sentence(
     username CHAR(30) NOT NULL,
-    id INT NOT NULL,
-    anchor BIGINT NOT NULL,
+    id BIGINT NOT NULL,
+    modified BIGINT NOT NULL,
     sentencebook INT,
     htmlText VARCHAR(8000),
     text VARCHAR(8000),
@@ -68,25 +74,28 @@ CREATE TABLE Sentence(
     lineSpacingMultiplier INT,
     lineSpacingExtra INT,
     textSize FLOAT,
-    textAlignment INT
+    textAlignment INT,
+    anchor BIGINT NOT NULL
 );
 CREATE UNIQUE INDEX sentenceNo ON Sentence(username, id);
 
 CREATE TABLE Sentencebook(
     username CHAR(30) NOT NULL,
-    id INT NOT NULL,
-    anchor BIGINT NOT NULL,
+    id BIGINT NOT NULL,
+    modified BIGINT NOT NULL,
     sentencebookName VARCHAR(30),
-    description VARCHAR(1000)
+    description VARCHAR(1000),
+    anchor BIGINT NOT NULL
 );
 CREATE UNIQUE INDEX sentencebookNo ON Sentencebook(username, id);
 
 CREATE TABLE SentenceLabel(
     username CHAR(30) NOT NULL,
-    id INT NOT NULL,
-    anchor BIGINT NOT NULL,
+    id BIGINT NOT NULL,
+    modified BIGINT NOT NULL,
     sentence INT NOT NULL,
-    label INT NOT NULL
+    label INT NOT NULL,
+    anchor BIGINT NOT NULL
 );
 CREATE UNIQUE INDEX sentenceLabelNO ON SentenceLabel(username, sentence, label);
 
@@ -97,8 +106,8 @@ CREATE UNIQUE INDEX sentenceLabelNO ON SentenceLabel(username, sentence, label);
 
 CREATE TABLE Diary_delete(
     username CHAR(30) NOT NULL,
-    id INT NOT NULL,
-    anchor BIGINT NOT NULL,
+    id BIGINT NOT NULL,
+    modified BIGINT NOT NULL,
     diarybook INT,
     htmlText VARCHAR(8000),
     text VARCHAR(8000),
@@ -108,40 +117,44 @@ CREATE TABLE Diary_delete(
     lineSpacingMultiplier INT,
     lineSpacingExtra INT,
     textSize FLOAT,
-    textAlignment INT
+    textAlignment INT,
+    anchor BIGINT NOT NULL
 );
 CREATE UNIQUE INDEX diary_deleteNo ON Diary_delete(username, id);
 
 CREATE TABLE Diarybook_delete(
     username CHAR(30) NOT NULL,
-    id INT NOT NULL,
-    anchor BIGINT NOT NULL,
+    id BIGINT NOT NULL,
+    modified BIGINT NOT NULL,
     diarybookName VARCHAR(30),
-    description VARCHAR(1000)
+    description VARCHAR(1000),
+    anchor BIGINT NOT NULL
 );
 CREATE UNIQUE INDEX diarybook_deleteNo ON Diarybook_delete(username, id);
 
 CREATE TABLE DiaryLabel_delete(
     username CHAR(30) NOT NULL,
-    id INT NOT NULL,
-    anchor BIGINT NOT NULL,
+    id BIGINT NOT NULL,
+    modified BIGINT NOT NULL,
     diary INT NOT NULL,
-    label INT NOT NULL
+    label INT NOT NULL,
+    anchor BIGINT NOT NULL
 );
 CREATE UNIQUE INDEX diaryLabel_deleteNO ON DiaryLabel_delete(username, diary, label);
 
 CREATE TABLE Label_delete(
     username CHAR(30) NOT NULL,
-    id INT NOT NULL,
-    anchor BIGINT NOT NULL,
-    labelname VARCHAR(30)
+    id BIGINT NOT NULL,
+    modified BIGINT NOT NULL,
+    labelname VARCHAR(30),
+    anchor BIGINT NOT NULL
 );
 CREATE UNIQUE INDEX label_deleteNo on Label_delete(username, id);
 
 CREATE TABLE Sentence_delete(
     username CHAR(30) NOT NULL,
-    id INT NOT NULL,
-    anchor BIGINT NOT NULL,
+    id BIGINT NOT NULL,
+    modified BIGINT NOT NULL,
     sentencebook INT,
     htmlText VARCHAR(8000),
     text VARCHAR(8000),
@@ -151,25 +164,28 @@ CREATE TABLE Sentence_delete(
     lineSpacingMultiplier INT,
     lineSpacingExtra INT,
     textSize FLOAT,
-    textAlignment INT
+    textAlignment INT,
+    anchor BIGINT NOT NULL
 );
 CREATE UNIQUE INDEX sentence_deleteNo ON Sentence_delete(username, id);
 
 CREATE TABLE Sentencebook_delete(
     username CHAR(30) NOT NULL,
-    id INT NOT NULL,
-    anchor BIGINT NOT NULL,
+    id BIGINT NOT NULL,
+    modified BIGINT NOT NULL,
     sentencebookName VARCHAR(30),
-    description VARCHAR(1000)
+    description VARCHAR(1000),
+    anchor BIGINT NOT NULL
 );
 CREATE UNIQUE INDEX sentencebook_deleteNo ON Sentencebook_delete(username, id);
 
 CREATE TABLE SentenceLabel_delete(
     username CHAR(30) NOT NULL,
-    id INT NOT NULL,
-    anchor BIGINT NOT NULL,
+    id BIGINT NOT NULL,
+    modified BIGINT NOT NULL,
     sentence INT NOT NULL,
-    label INT NOT NULL
+    label INT NOT NULL,
+    anchor BIGINT NOT NULL
 );
 CREATE UNIQUE INDEX sentenceLabel_deleteNO ON SentenceLabel_delete(username, sentence, label);
 

@@ -1,22 +1,17 @@
 package Db;
 
-import Json.SqltoJson;
-import Json.dbJson.*;
-
-import java.io.NotSerializableException;
 import java.lang.reflect.Field;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Search {
-    public static <T> List<T> searchForGet(DatabaseAdapter adapter, Class<T> cls, Long anchor){
+    public static <T> List<T> searchWithAnchor(DatabaseAdapter adapter, Class<T> cls, Long anchor){
         List<T> list = new ArrayList<T>();
         try{
-            PreparedStatement pstm = adapter.connection.prepareStatement(createSqlForGet(cls));
+            PreparedStatement pstm = adapter.connection.prepareStatement(createSqlWithAnchor(cls, false));
             pstm.setLong(1, anchor);
             ResultSet rs = pstm.executeQuery();
             while (rs.next()){
@@ -29,18 +24,34 @@ public class Search {
                         continue;
                     }
                     field.setAccessible(true);
-                    fieldSet(rs, (T) t, field);
+                    fieldSet(rs, t, field);
                     index++;
                 }
                 list.add(t);
             }
-        }catch(SQLException se){
-            // 处理 JDBC 错误
-            se.printStackTrace();
-        }catch(Exception e){
+            pstm = adapter.connection.prepareStatement(createSqlWithAnchor(cls, true));
+            pstm.setLong(1, anchor);
+            rs = pstm.executeQuery();
+            while (rs.next()){
+                T t = cls.newInstance();
+                int index = 1;
+                for(Field field : cls.getDeclaredFields()){
+                    if(index == 1){
+                        field.set(t, -1);
+                        index++;
+                        continue;
+                    }
+                    field.setAccessible(true);
+                    fieldSet(rs, t, field);
+                    index++;
+                }
+                list.add(t);
+            }
+        } catch(Exception e){
             // 处理 Class.forName 错误
             e.printStackTrace();
-        }finally {
+        }
+        finally {
             return list;
         }
 
@@ -56,13 +67,32 @@ public class Search {
             field.set(t, obj);
         }
     }
+public static <T> Long search_anchor(DatabaseAdapter adapter, Class<T> cls, String username, long id, boolean delete){
+        //T t = null;
+        Long anchor = null;
+        try {
+            PreparedStatement pstm = adapter.connection.prepareStatement(createSql(cls, delete));
+            pstm.setString(1, username);
+            pstm.setLong(2, id);
+            ResultSet rs = pstm.executeQuery();
+            if(rs.next()) {
+                anchor = rs.getLong("anchor");
+            }
+        } catch(Exception e){
+            // 处理 Class.forName 错误
+            e.printStackTrace();
+        }
+        finally {
+            return anchor;
+        }
 
-    public static <T> T search(DatabaseAdapter adapter, Class<T> cls, String username, int id, boolean delete){
+    }
+    public static <T> T search(DatabaseAdapter adapter, Class<T> cls, String username, long id, boolean delete){
         T t = null;
         try {
             PreparedStatement pstm = adapter.connection.prepareStatement(createSql(cls, delete));
             pstm.setString(1, username);
-            pstm.setInt(2, id);
+            pstm.setLong(2, id);
             ResultSet rs = pstm.executeQuery();
             if(rs.next()) {
                 t = cls.newInstance();
@@ -77,14 +107,11 @@ public class Search {
                         continue;
                     }
                     field.setAccessible(true);
-                    fieldSet(rs, (T) t, field);
+                    fieldSet(rs,  t, field);
                     index++;
                 }
             }
-        }catch(SQLException se){
-            // 处理 JDBC 错误
-            se.printStackTrace();
-        }catch(Exception e){
+        } catch(Exception e){
             // 处理 Class.forName 错误
             e.printStackTrace();
         }finally {
@@ -102,9 +129,14 @@ public class Search {
         }
         return sql;
     }
-    private static String createSqlForGet(Class<?> cls){
+    private static String createSqlWithAnchor(Class<?> cls, boolean delete){
         String sql;
-        sql = "SELECT * FROM " + cls.getSimpleName() +  " WHERE anchor > ?";
+        if(!delete) {
+            sql = "SELECT * FROM " + cls.getSimpleName() + " WHERE anchor > ?";
+        }
+        else {
+            sql = "SELECT * FROM " + cls.getSimpleName()+"_delete" + " WHERE anchor > ?";
+        }
         return sql;
     }
 }
