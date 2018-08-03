@@ -2,6 +2,7 @@ package Servlet;
 
 import Db.DatabaseAdapter;
 import Json.LoginBack;
+import Json.dbJson.UserList;
 import Output.Output;
 import com.google.gson.Gson;
 
@@ -14,6 +15,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Date;
 
 import static Output.Output.output;
 
@@ -24,8 +26,10 @@ public class Signin extends HttpServlet {
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
         String username = request.getParameter("username");
         String password = request.getParameter("password");
+        System.out.println("request 解析出了" + username);
         if(username.length()>30){
             //用户名过长
             Gson gson = new Gson();
@@ -41,8 +45,11 @@ public class Signin extends HttpServlet {
             ResultSet rs = adapter.statement.executeQuery(mysql);
             if(!rs.next()) {
                 //用户名不存在，可以成功注册
-                mysql = "INSERT INTO UserList(username, password) VALUES ('" + username + "', '" + password + "');";
-                adapter.statement.executeUpdate(mysql);
+                UserList user = new UserList();
+                user.username = username;
+                user.password = password;
+                user.modified = (new Date()).getTime();
+                SyncUser.insert(adapter, user);
                 Gson gson = new Gson();
                 LoginBack loginBack = new LoginBack();
                 loginBack.success = true;
@@ -52,6 +59,7 @@ public class Signin extends HttpServlet {
             }
             else{
                 //用户名存在， 不能注册，请更换用户名
+                System.out.println("用户存在，从数据库中表示为" + rs.getString("username"));
                 Gson gson = new Gson();
                 LoginBack loginBack = new LoginBack();
                 loginBack.success = false;

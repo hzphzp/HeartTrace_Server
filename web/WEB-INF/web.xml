@@ -3,25 +3,6 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
-    <servlet>
-        <servlet-name>Servlet</servlet-name>
-        <servlet-class>Servlet.Servlet</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>Servlet</servlet-name>
-        <url-pattern>/Servlet.Servlet</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>DatabaseAccesser</servlet-name>
-        <servlet-class>Servlet.DatabaseAccesser</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>DatabaseAccesser</servlet-name>
-        <url-pattern>/Servlet.DatabaseAccesser</url-pattern>
-    </servlet-mapping>
 
     <servlet>
         <servlet-name>Sync</servlet-name>
@@ -63,14 +44,45 @@
         <url-pattern>/Servlet.Loginup</url-pattern>
     </servlet-mapping>
 
+
+
     <servlet>
-        <servlet-name>Testverify</servlet-name>
-        <servlet-class>Servlet.Testverify</servlet-class>
+        <servlet-name>Verify</servlet-name>
+        <servlet-class>Servlet.Verify</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>Testverify</servlet-name>
-        <url-pattern>/Servlet.Testverify</url-pattern>
+        <servlet-name>Verify</servlet-name>
+        <url-pattern>/Servlet.Verify</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>SyncUser</servlet-name>
+        <servlet-class>Servlet.SyncUser</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>SyncUser</servlet-name>
+        <url-pattern>/Servlet.SyncUser</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>UploadFile</servlet-name>
+        <servlet-class>Servlet.UploadFile</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>UploadFile</servlet-name>
+        <url-pattern>/Servlet.UploadFile</url-pattern>
+    </servlet-mapping>
+
+     <servlet>
+        <servlet-name>DownloadFile</servlet-name>
+        <servlet-class>Servlet.DownloadFile</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>DownloadFile</servlet-name>
+        <url-pattern>/Servlet.DownloadFile</url-pattern>
+    </servlet-mapping>
 </web-app>

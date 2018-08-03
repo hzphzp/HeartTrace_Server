@@ -18,13 +18,15 @@ import java.util.Date;
 @WebServlet(name = "Servlet.Sync1")
 public class Sync1 extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
         long anchor;
         long now = (new Date()).getTime();
+        request.setCharacterEncoding("UTF-8");
         String username = request.getParameter("username");
         String modelnum = request.getParameter("modelnum");
         String token = request.getParameter("token");
         String content = request.getParameter("content");
-        long newestUpdate = request.getDateHeader("anchor");
+        long newestUpdate = Long.parseLong(request.getParameter("anchor"));
         JavaWebToken.verifyToken(token, username, modelnum);
         DatabaseAdapter adapter = new DatabaseAdapter();
         Json.Sync syncback = new Json.Sync();
@@ -107,12 +109,12 @@ public class Sync1 extends HttpServlet {
                     //处理完了一个其中一个list的push更新
                     //现在编写返回的syncback
                     //就是这一个list中的anchor大于传来的newestUpdate里面
-                    field.set(syncback, Search.searchWithAnchor(adapter, clz, newestUpdate));
+                    field.set(syncback, Search.searchWithAnchor(adapter, clz, username, newestUpdate));
                 }
             }
             //已经全部处理完毕，现在需要返回原来的代码
             String json = gson.toJson(syncback);
-            response.addDateHeader("anchor", now);
+            response.addHeader("anchor", Long.toString(now));
 
             Output.output(json, response);
         } catch (NoSuchMethodException e) {

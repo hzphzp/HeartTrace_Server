@@ -1,7 +1,5 @@
 package Json.dbJson;
 
-import Json.dbJson.Label;
-import Json.dbJson.Sentence;
 
 public class SentenceLabel {
     public int status;

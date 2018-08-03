@@ -77,4 +77,13 @@ public class InsertTest {
         Insert.insert(adapter, sentenceLabel, "huangzp", now , true);
 
     }
+
+    @Test
+    public void insertUserList(){
+        DatabaseAdapter adapter = new DatabaseAdapter();
+        UserList user = new UserList();
+        user.username = "huangzp";
+        user.modified = (new Date()).getTime();
+        user.nickname = "huangzp";
+    }
 }

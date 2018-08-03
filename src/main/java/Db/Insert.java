@@ -1,13 +1,8 @@
 package Db;
 
-import Json.dbJson.Diary;
-
-import java.io.NotSerializableException;
 import java.lang.reflect.Field;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.sql.Statement;
-import java.text.MessageFormat;
 
 public class Insert {
     public static <T> boolean insert(DatabaseAdapter adapter, T cls, String username, Long anchor, boolean delete){
@@ -56,4 +51,5 @@ public class Insert {
         }
         return sql;
     }
+
 }

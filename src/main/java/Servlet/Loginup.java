@@ -22,6 +22,7 @@ public class Loginup extends HttpServlet {
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         String modelnum = request.getParameter("modelnum");
@@ -37,6 +38,7 @@ public class Loginup extends HttpServlet {
                 loginBack.msg = "登录失败，用户不存在，请检查后重试";
                 loginBack.token = null;
                 Output.output(gson.toJson(loginBack), response);
+                log(username+"注册失败， 已经存在");
             }
             else{
                 //用户名存在， 检查密码是否正确

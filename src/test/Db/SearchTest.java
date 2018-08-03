@@ -59,13 +59,13 @@ public class SearchTest {
     @Test
     public void searchForGet() {
         DatabaseAdapter adapter = new DatabaseAdapter();
-        List<Diary> diaryList = Search.searchWithAnchor(adapter, Diary.class, -1L);
-        List<Diarybook> diarybookList = Search.searchWithAnchor(adapter, Diarybook.class, -1L);
-        List<DiaryLabel> diaryLabelList = Search.searchWithAnchor(adapter, DiaryLabel.class, -1L);
-        List<Label> labelList = Search.searchWithAnchor(adapter, Label.class, -1L);
-        List<Sentence> sentenceList = Search.searchWithAnchor(adapter, Sentence.class, -1L);
-        List<Sentencebook> sentencebookList = Search.searchWithAnchor(adapter, Sentencebook.class, -1L);
-        List<SentenceLabel> sentenceLabelList = Search.searchWithAnchor(adapter, SentenceLabel.class, -1L);
+        List<Diary> diaryList = Search.searchWithAnchor(adapter, Diary.class, "huangzp", -1L);
+        List<Diarybook> diarybookList = Search.searchWithAnchor(adapter, Diarybook.class, "huangzp", -1L);
+        List<DiaryLabel> diaryLabelList = Search.searchWithAnchor(adapter, DiaryLabel.class, "huangzp", -1L);
+        List<Label> labelList = Search.searchWithAnchor(adapter, Label.class, "huangzp", -1L);
+        List<Sentence> sentenceList = Search.searchWithAnchor(adapter, Sentence.class, "huangzp", -1L);
+        List<Sentencebook> sentencebookList = Search.searchWithAnchor(adapter, Sentencebook.class, "huangzp", -1L);
+        List<SentenceLabel> sentenceLabelList = Search.searchWithAnchor(adapter, SentenceLabel.class, "huangzp", -1L);
 
     }
 

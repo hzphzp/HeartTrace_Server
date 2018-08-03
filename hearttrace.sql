@@ -1,3 +1,9 @@
+SET character_set_client = utf8;
+SET character_set_connection = utf8;
+SET character_set_database = utf8;
+SET character_set_results = utf8;
+SET character_set_server = utf8;
+DROP DATABASE HeartTrace;
 CREATE DATABASE HeartTrace;
 
 USE HeartTrace;
@@ -5,20 +11,21 @@ USE HeartTrace;
 CREATE TABLE UserList(
     username CHAR(30) NOT NULL PRIMARY KEY,
     password VARCHAR(30) NOT NULL,
+    modified BIGINT NOT NULL,
     nickname VARCHAR(30),
     gender CHAR(10),
     birthday VARCHAR (30),
     email VARCHAR (30),
     school VARCHAR (30),
     signature VARCHAR (300),
-    headimage VARCHAR (1000)
+    headimage LONGTEXT
 );
 
 CREATE TABLE Diary(
     username CHAR(30) NOT NULL,
     id BIGINT NOT NULL,
     modified BIGINT NOT NULL,
-    diarybook INT,
+    diarybook BIGINT,
     htmlText VARCHAR(8000),
     text VARCHAR(8000),
     date BIGINT,
@@ -46,8 +53,8 @@ CREATE TABLE DiaryLabel(
     username CHAR(30) NOT NULL,
     id BIGINT NOT NULL,
     modified BIGINT NOT NULL,
-    diary INT NOT NULL,
-    label INT NOT NULL,
+    diary BIGINT NOT NULL,
+    label BIGINT NOT NULL,
     anchor BIGINT NOT NULL
 );
 CREATE UNIQUE INDEX diaryLabelNO ON DiaryLabel(username, diary, label);
@@ -65,7 +72,7 @@ CREATE TABLE Sentence(
     username CHAR(30) NOT NULL,
     id BIGINT NOT NULL,
     modified BIGINT NOT NULL,
-    sentencebook INT,
+    sentencebook BiGINT,
     htmlText VARCHAR(8000),
     text VARCHAR(8000),
     date BIGINT,
@@ -93,8 +100,8 @@ CREATE TABLE SentenceLabel(
     username CHAR(30) NOT NULL,
     id BIGINT NOT NULL,
     modified BIGINT NOT NULL,
-    sentence INT NOT NULL,
-    label INT NOT NULL,
+    sentence BIGINT NOT NULL,
+    label BIGINT NOT NULL,
     anchor BIGINT NOT NULL
 );
 CREATE UNIQUE INDEX sentenceLabelNO ON SentenceLabel(username, sentence, label);
@@ -108,7 +115,7 @@ CREATE TABLE Diary_delete(
     username CHAR(30) NOT NULL,
     id BIGINT NOT NULL,
     modified BIGINT NOT NULL,
-    diarybook INT,
+    diarybook BIGINT,
     htmlText VARCHAR(8000),
     text VARCHAR(8000),
     date BIGINT,
@@ -136,8 +143,8 @@ CREATE TABLE DiaryLabel_delete(
     username CHAR(30) NOT NULL,
     id BIGINT NOT NULL,
     modified BIGINT NOT NULL,
-    diary INT NOT NULL,
-    label INT NOT NULL,
+    diary BIGINT NOT NULL,
+    label BIGINT NOT NULL,
     anchor BIGINT NOT NULL
 );
 CREATE UNIQUE INDEX diaryLabel_deleteNO ON DiaryLabel_delete(username, diary, label);
@@ -155,7 +162,7 @@ CREATE TABLE Sentence_delete(
     username CHAR(30) NOT NULL,
     id BIGINT NOT NULL,
     modified BIGINT NOT NULL,
-    sentencebook INT,
+    sentencebook BIGINT,
     htmlText VARCHAR(8000),
     text VARCHAR(8000),
     date BIGINT,
@@ -183,8 +190,8 @@ CREATE TABLE SentenceLabel_delete(
     username CHAR(30) NOT NULL,
     id BIGINT NOT NULL,
     modified BIGINT NOT NULL,
-    sentence INT NOT NULL,
-    label INT NOT NULL,
+    sentence BIGINT NOT NULL,
+    label BIGINT NOT NULL,
     anchor BIGINT NOT NULL
 );
 CREATE UNIQUE INDEX sentenceLabel_deleteNO ON SentenceLabel_delete(username, sentence, label);

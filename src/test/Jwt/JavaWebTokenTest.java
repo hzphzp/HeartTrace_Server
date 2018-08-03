@@ -13,8 +13,8 @@ public class JavaWebTokenTest {
     private String token;
     @Before
     public void setUp() throws Exception {
-        username = "huangzp";
-        modelnum = "honor7";
+        username = "wuxueqing";
+        modelnum = "M688C";
     }
 
     @After
@@ -23,7 +23,8 @@ public class JavaWebTokenTest {
 
     @Test
     public void createToken() {
-        token = JavaWebToken.createToken(username, modelnum);
+        //token = JavaWebToken.createToken(username, modelnum);
+        token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJ3dXh1ZXFpbmciLCJzdWIiOiJNNjg4QyIsIm5iZiI6MTUzMzEyODAyNCwiaXNzIjoiaHVhbmd6cCIsImV4cCI6MTUzMzIxNDQyMywiaWF0IjoxNTMzMTI4MDIzfQ.AWKDtVhtL5uXu6c_l2C4JazebPrYJmUgZskmrPEhkA8";
         System.out.println(token);
     }
 

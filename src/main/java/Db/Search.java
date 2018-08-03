@@ -8,11 +8,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Search {
-    public static <T> List<T> searchWithAnchor(DatabaseAdapter adapter, Class<T> cls, Long anchor){
+    public static <T> List<T> searchWithAnchor(DatabaseAdapter adapter, Class<T> cls, String username, Long anchor){
         List<T> list = new ArrayList<T>();
         try{
             PreparedStatement pstm = adapter.connection.prepareStatement(createSqlWithAnchor(cls, false));
             pstm.setLong(1, anchor);
+            pstm.setString(2, username);
             ResultSet rs = pstm.executeQuery();
             while (rs.next()){
                 T t = cls.newInstance();
@@ -20,24 +21,6 @@ public class Search {
                 for(Field field : cls.getDeclaredFields()){
                     if(index == 1){
                         field.set(t, 9);
-                        index++;
-                        continue;
-                    }
-                    field.setAccessible(true);
-                    fieldSet(rs, t, field);
-                    index++;
-                }
-                list.add(t);
-            }
-            pstm = adapter.connection.prepareStatement(createSqlWithAnchor(cls, true));
-            pstm.setLong(1, anchor);
-            rs = pstm.executeQuery();
-            while (rs.next()){
-                T t = cls.newInstance();
-                int index = 1;
-                for(Field field : cls.getDeclaredFields()){
-                    if(index == 1){
-                        field.set(t, -1);
                         index++;
                         continue;
                     }
@@ -132,11 +115,12 @@ public static <T> Long search_anchor(DatabaseAdapter adapter, Class<T> cls, Stri
     private static String createSqlWithAnchor(Class<?> cls, boolean delete){
         String sql;
         if(!delete) {
-            sql = "SELECT * FROM " + cls.getSimpleName() + " WHERE anchor > ?";
+            sql = "SELECT * FROM " + cls.getSimpleName() + " WHERE anchor > ? AND username=?";
         }
         else {
-            sql = "SELECT * FROM " + cls.getSimpleName()+"_delete" + " WHERE anchor > ?";
+            sql = "SELECT * FROM " + cls.getSimpleName()+"_delete" + " WHERE anchor > ? AND username=?";
         }
         return sql;
     }
+
 }
