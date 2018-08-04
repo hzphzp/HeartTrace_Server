@@ -48,35 +48,6 @@ public class UploadFile extends HttpServlet {
             throws ServletException, IOException {
         String username = request.getParameter("username");
         String modelnum = request.getParameter("modelnum");
-<<<<<<< HEAD
-        //Collection<Part> parts =  request.getParts();
-
-        //Long anchor = Long.parseLong(request.getParameter("anchor"));
-        long anchor = -1;
-        //JavaWebToken.verifyToken(token, username, modelnum);
-
-
-        // 配置上传参数
-        DiskFileItemFactory factory = new DiskFileItemFactory();
-        // 设置内存临界值 - 超过后将产生临时文件并存储于临时目录中
-        factory.setSizeThreshold(MEMORY_THRESHOLD);
-        // 设置临时存储目录
-        factory.setRepository(new File(System.getProperty("java.io.tmpdir")));
-
-        ServletFileUpload upload = new ServletFileUpload(factory);
-
-        // 设置最大文件上传值
-        upload.setFileSizeMax(MAX_FILE_SIZE);
-
-        // 设置最大请求值 (包含文件和表单数据)
-        upload.setSizeMax(MAX_REQUEST_SIZE);
-
-        // 中文处理
-        upload.setHeaderEncoding("UTF-8");
-
-        // 构造临时路径来存储上传的文件
-        // 这个路径相对当前应用的目录
-=======
         String token = request.getParameter("token");
         JavaWebToken.verifyToken(token, username, modelnum);
         String content = request.getParameter("content");
@@ -84,7 +55,6 @@ public class UploadFile extends HttpServlet {
         Gson gson = new Gson();
         MyFileList inFile = gson.fromJson(content, MyFileList.class);
         MyFileList outFile = new MyFileList();
->>>>>>> pic
         String uploadPath = request.getServletContext().getRealPath("./") + File.separator + username;
         File dir = new File(uploadPath);
         if(!dir.exists()){
@@ -112,10 +82,12 @@ public class UploadFile extends HttpServlet {
         if(inFile.files != null) {
             for (MyFile myFile : inFile.files) {
                 //处理客户端的发过来的图片文件
-                File fileStore = new File(dir + File.separator + myFile.filename);
-                fileStore.createNewFile();
-                BufferedImage image = ImageIO.read(new ByteArrayInputStream(myFile.content));
-                ImageIO.write(image, myFile.type, fileStore);
+                if(myFile.type.equals("jpg") || myFile.type.equals("png") || myFile.type.equals("gif")){
+                    File fileStore = new File(dir + File.separator + myFile.filename);
+                    fileStore.createNewFile();
+                    BufferedImage image = ImageIO.read(new ByteArrayInputStream(myFile.content));
+                    ImageIO.write(image, myFile.type, fileStore);
+                }
             }
         }
         String json = gson.toJson(outFile);

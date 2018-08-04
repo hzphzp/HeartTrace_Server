@@ -40,7 +40,7 @@ public class UploadFileTest {
                 ".eyJhdWQiOiJodWFuZ3pwIiwic3ViIjoiaG9ub3I3IiwiaXNzIjoiaHVhbmd6cCJ9" +
                 ".8iY9N5TvSdKUtU6IUxsJCg2OX6unfM3kiJNHVAL5duw");
         map.put("anchor", String.valueOf((new Date()).getTime()));
-        File dir = new File("D:\\Pictures\\profile");
+        File dir = new File("D:\\Pictures\\desktop");
         File[] files = dir.listFiles();
         MyFileList inFiles = new MyFileList();
         for(int i = 0; i < files.length; i++){
