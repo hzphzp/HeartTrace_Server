@@ -48,10 +48,11 @@ public class UploadFile extends HttpServlet {
         String username = request.getParameter("username");
         String token = request.getParameter("token");
         String modelnum = request.getParameter("modelnum");
-        Collection<Part> parts =  request.getParts();
+        //Collection<Part> parts =  request.getParts();
 
-        Long anchor = Long.parseLong(request.getParameter("anchor"));
-        JavaWebToken.verifyToken(token, username, modelnum);
+        //Long anchor = Long.parseLong(request.getParameter("anchor"));
+        long anchor = -1;
+        //JavaWebToken.verifyToken(token, username, modelnum);
 
 
         // 配置上传参数
