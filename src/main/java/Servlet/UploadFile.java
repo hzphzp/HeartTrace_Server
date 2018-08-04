@@ -1,6 +1,10 @@
 package Servlet;
 
+import Json.MyFile;
+import Json.MyFileList;
 import Jwt.JavaWebToken;
+import Output.Output;
+import com.google.gson.Gson;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
@@ -17,10 +21,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 import java.awt.image.BufferedImage;
-import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.awt.image.DataBufferByte;
+import java.io.*;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
@@ -48,21 +50,63 @@ public class UploadFile extends HttpServlet {
         String modelnum = request.getParameter("modelnum");
         String token = request.getParameter("token");
         JavaWebToken.verifyToken(token, username, modelnum);
-        String filename = request.getParameter("filename");
-        String filetype = request.getParameter("filetype");
         String content = request.getParameter("content");
+        Long anchor = Long.parseLong(request.getParameter("anchor"));
+        Gson gson = new Gson();
+        MyFileList inFile = gson.fromJson(content, MyFileList.class);
+        MyFileList outFile = new MyFileList();
         String uploadPath = request.getServletContext().getRealPath("./") + File.separator + username;
         File dir = new File(uploadPath);
         if(!dir.exists()){
             dir.mkdir();
         }
+        File[] fileback = dir.listFiles();
+        //处理现在服务器上的图片文件
+        for(int i = 0; i < fileback.length; i++) {
+            if (fileback[i].lastModified() > anchor) {
+                MyFile myFile = new MyFile();
+                BufferedImage image = ImageIO.read(fileback[i]);
+                if (image == null) {
+                    continue;
+                }
+                myFile.filename = fileback[i].getName();
+                if (!setType(fileback[i], myFile)) continue;
+                ByteArrayOutputStream out = new ByteArrayOutputStream();
+                ImageIO.write(image, myFile.type, out);
+                myFile.content = out.toByteArray();
+                outFile.files.add(myFile);
+            }
+        }
+        //确定了要返回的图片
         log("huangzp");
-        String filePath = dir + File.separator + filename;
-        File fileStore = new File(filePath);
-        BASE64Decoder decoder = new BASE64Decoder();
-        byte[] bytes = decoder.decodeBuffer(content);
-        ByteArrayInputStream bais = new ByteArrayInputStream(bytes);
-        fileStore.createNewFile();
-        BufferedImage bfi = 
+        if(inFile.files != null) {
+            for (MyFile myFile : inFile.files) {
+                //处理客户端的发过来的图片文件
+                File fileStore = new File(dir + File.separator + myFile.filename);
+                fileStore.createNewFile();
+                BufferedImage image = ImageIO.read(new ByteArrayInputStream(myFile.content));
+                ImageIO.write(image, myFile.type, fileStore);
+            }
+        }
+        String json = gson.toJson(outFile);
+        Output.output(json, response);
+    }
+
+
+
+    static boolean setType(File file, MyFile myFile) {
+        if(file.getName().endsWith(".gif")){
+                myFile.type = "gif";
+        }
+        else if (file.getName().endsWith(".png")){
+            myFile.type = "png";
+        }
+        else if (file.getName().endsWith(".jpg")){
+            myFile.type = "jpg";
+        }
+        else {
+            return false;
+        }
+        return true;
     }
 }
