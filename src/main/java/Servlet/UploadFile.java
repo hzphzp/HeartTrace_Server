@@ -1,21 +1,28 @@
 package Servlet;
 
+import Json.MyFile;
+import Json.MyFileList;
 import Jwt.JavaWebToken;
+import Output.Output;
+import com.google.gson.Gson;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
+import sun.misc.BASE64Decoder;
 
+import javax.imageio.ImageIO;
 import javax.servlet.ServletException;
+import javax.servlet.ServletInputStream;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
-import java.io.File;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.awt.image.BufferedImage;
+import java.awt.image.DataBufferByte;
+import java.io.*;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
@@ -39,15 +46,9 @@ public class UploadFile extends HttpServlet {
 
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-        /**
-         * 上传数据及保存文件
-         */
-        // 检测是否为多媒体上传
-        //DownloadFile.isMultipart(request, response);
         String username = request.getParameter("username");
-        String token = request.getParameter("token");
         String modelnum = request.getParameter("modelnum");
+<<<<<<< HEAD
         //Collection<Part> parts =  request.getParts();
 
         //Long anchor = Long.parseLong(request.getParameter("anchor"));
@@ -75,53 +76,67 @@ public class UploadFile extends HttpServlet {
 
         // 构造临时路径来存储上传的文件
         // 这个路径相对当前应用的目录
+=======
+        String token = request.getParameter("token");
+        JavaWebToken.verifyToken(token, username, modelnum);
+        String content = request.getParameter("content");
+        Long anchor = Long.parseLong(request.getParameter("anchor"));
+        Gson gson = new Gson();
+        MyFileList inFile = gson.fromJson(content, MyFileList.class);
+        MyFileList outFile = new MyFileList();
+>>>>>>> pic
         String uploadPath = request.getServletContext().getRealPath("./") + File.separator + username;
-
-
-        // 如果目录不存在则创建
-        File uploadDir = new File(uploadPath);
-        if (!uploadDir.exists()) {
-            uploadDir.mkdir();
+        File dir = new File(uploadPath);
+        if(!dir.exists()){
+            dir.mkdir();
         }
-
-        try {
-            // 解析请求的内容提取文件数据
-            @SuppressWarnings("unchecked")
-            List<FileItem> formItems = upload.parseRequest(request);
-
-            if (formItems != null && formItems.size() > 0) {
-                // 迭代表单数据
-                for (FileItem item : formItems) {
-                    // 处理不在表单中的字段
-                    if (!item.isFormField()) {
-                        String fileName = new File(item.getName()).getName();
-                        String filePath = uploadPath + File.separator + fileName;
-                        File storeFile = new File(filePath);
-                        // 在控制台输出文件的上传路径
-                        System.out.println(filePath);
-                        // 保存文件到硬盘
-                        item.write(storeFile);
-                        request.setAttribute("message",
-                                "文件上传成功!");
-                    }
+        File[] fileback = dir.listFiles();
+        //处理现在服务器上的图片文件
+        for(int i = 0; i < fileback.length; i++) {
+            if (fileback[i].lastModified() > anchor) {
+                MyFile myFile = new MyFile();
+                BufferedImage image = ImageIO.read(fileback[i]);
+                if (image == null) {
+                    continue;
                 }
-            }
-        } catch (Exception ex) {
-            request.setAttribute("message",
-                    "错误信息: " + ex.getMessage());
-        }
-        File[] arrayFiles = uploadDir.listFiles();
-        for(int i = 0; i < arrayFiles.length; i++){
-            if(arrayFiles[i].isDirectory()){
-                continue;
-            }
-            else if (arrayFiles[i].isFile()){
-                if(arrayFiles[i].lastModified() > anchor){
-                    //需要返回同步
-                    response.getWriter().println(arrayFiles[i].getName());
-                    //将文件名返回
-                }
+                myFile.filename = fileback[i].getName();
+                if (!setType(fileback[i], myFile)) continue;
+                ByteArrayOutputStream out = new ByteArrayOutputStream();
+                ImageIO.write(image, myFile.type, out);
+                myFile.content = out.toByteArray();
+                outFile.files.add(myFile);
             }
         }
+        //确定了要返回的图片
+        log("huangzp");
+        if(inFile.files != null) {
+            for (MyFile myFile : inFile.files) {
+                //处理客户端的发过来的图片文件
+                File fileStore = new File(dir + File.separator + myFile.filename);
+                fileStore.createNewFile();
+                BufferedImage image = ImageIO.read(new ByteArrayInputStream(myFile.content));
+                ImageIO.write(image, myFile.type, fileStore);
+            }
+        }
+        String json = gson.toJson(outFile);
+        Output.output(json, response);
+    }
+
+
+
+    static boolean setType(File file, MyFile myFile) {
+        if(file.getName().endsWith(".gif")){
+                myFile.type = "gif";
+        }
+        else if (file.getName().endsWith(".png")){
+            myFile.type = "png";
+        }
+        else if (file.getName().endsWith(".jpg")){
+            myFile.type = "jpg";
+        }
+        else {
+            return false;
+        }
+        return true;
     }
 }
