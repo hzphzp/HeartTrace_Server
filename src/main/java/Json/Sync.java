@@ -7,7 +7,6 @@ import java.util.List;
 
 public class Sync {
     public List<Diary> DiaryList = new ArrayList<Diary>();
-
     public List<Diarybook> DiarybookList = new ArrayList<Diarybook>();
     public List<DiaryLabel> DiaryLabelList = new ArrayList<DiaryLabel>();
     public List<Label> LabelList = new ArrayList<Label>();
