@@ -5,39 +5,19 @@ import Json.MyFileList;
 import Jwt.JavaWebToken;
 import Output.Output;
 import com.google.gson.Gson;
-import org.apache.commons.fileupload.FileItem;
-import org.apache.commons.fileupload.FileUploadException;
-import org.apache.commons.fileupload.disk.DiskFileItemFactory;
-import org.apache.commons.fileupload.servlet.ServletFileUpload;
-import sun.misc.BASE64Decoder;
 
 import javax.imageio.ImageIO;
 import javax.servlet.ServletException;
-import javax.servlet.ServletInputStream;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.Part;
 import java.awt.image.BufferedImage;
-import java.awt.image.DataBufferByte;
 import java.io.*;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
 @MultipartConfig
 @WebServlet(name = "Servlet.Loginup")
 public class UploadFile extends HttpServlet {
-    private static final long serialVersionUID = 1L;
-
-    // 上传文件存储目录
-    private static final String UPLOAD_DIRECTORY = "upload";
-
-    // 上传配置
-    private static final int MEMORY_THRESHOLD   = 1024 * 1024 * 3;  // 3MB
-    private static final int MAX_FILE_SIZE      = 1024 * 1024 * 40; // 40MB
-    private static final int MAX_REQUEST_SIZE   = 1024 * 1024 * 50; // 50MB
 
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -65,15 +45,21 @@ public class UploadFile extends HttpServlet {
         for(int i = 0; i < fileback.length; i++) {
             if (fileback[i].lastModified() > anchor) {
                 MyFile myFile = new MyFile();
-                BufferedImage image = ImageIO.read(fileback[i]);
-                if (image == null) {
-                    continue;
-                }
                 myFile.filename = fileback[i].getName();
-                if (!setType(fileback[i], myFile)) continue;
-                ByteArrayOutputStream out = new ByteArrayOutputStream();
+                /*ByteArrayOutputStream out = new ByteArrayOutputStream();
                 ImageIO.write(image, myFile.type, out);
-                myFile.content = out.toByteArray();
+                myFile.content = out.toByteArray();*/
+                FileInputStream fin = new FileInputStream(fileback[i]);
+                InputStreamReader reader = new InputStreamReader(fin);
+                BufferedReader buffReader = new BufferedReader(reader);
+                String strTmp;
+                while((strTmp = buffReader.readLine())!=null){
+                    myFile.content += strTmp;
+                    myFile.content += "\n";
+                }
+                myFile.content = myFile.content.substring(0, myFile.content.length()-1);
+                buffReader.close();
+
                 outFile.files.add(myFile);
             }
         }
@@ -82,12 +68,13 @@ public class UploadFile extends HttpServlet {
         if(inFile.files != null) {
             for (MyFile myFile : inFile.files) {
                 //处理客户端的发过来的图片文件
-                if(myFile.type.equals("jpg") || myFile.type.equals("png") || myFile.type.equals("gif")){
-                    File fileStore = new File(dir + File.separator + myFile.filename);
-                    fileStore.createNewFile();
-                    BufferedImage image = ImageIO.read(new ByteArrayInputStream(myFile.content));
-                    ImageIO.write(image, myFile.type, fileStore);
-                }
+                File fileStore = new File(dir + File.separator + myFile.filename);
+                fileStore.createNewFile();
+                /*BufferedImage image = ImageIO.read(new ByteArrayInputStream(myFile.content));
+                ImageIO.write(image, myFile.type, fileStore);*/
+                FileWriter fw = new FileWriter(fileStore);
+                fw.write(myFile.content);
+                fw.close();
             }
         }
         String json = gson.toJson(outFile);
@@ -96,7 +83,7 @@ public class UploadFile extends HttpServlet {
 
 
 
-    static boolean setType(File file, MyFile myFile) {
+    /*static boolean setType(File file, MyFile myFile) {
         if(file.getName().endsWith(".gif")){
                 myFile.type = "gif";
         }
@@ -110,5 +97,5 @@ public class UploadFile extends HttpServlet {
             return false;
         }
         return true;
-    }
+    }*/
 }
