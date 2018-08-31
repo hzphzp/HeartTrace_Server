@@ -4,6 +4,7 @@ import Db.*;
 import Jwt.JavaWebToken;
 import Output.Output;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import org.omg.Messaging.SYNC_WITH_TRANSPORT;
 
 import javax.servlet.ServletException;
@@ -30,7 +31,10 @@ public class Sync1 extends HttpServlet {
         JavaWebToken.verifyToken(token, username, modelnum);
         DatabaseAdapter adapter = new DatabaseAdapter();
         Json.Sync syncback = new Json.Sync();
-        Gson gson = new Gson();
+        Gson gson = new GsonBuilder()
+                .setPrettyPrinting()
+                .disableHtmlEscaping()
+                .create();
         //java.lang.reflect.Type classType = new TypeToken<Json.Sync>() {}.getType();
         //Json.Sync sync = gson.fromJson(content, classType);
         Json.Sync sync = gson.fromJson(content, Json.Sync.class);
@@ -112,11 +116,6 @@ public class Sync1 extends HttpServlet {
                     field.set(syncback, Search.searchWithAnchor(adapter, clz, username, newestUpdate));
                 }
             }
-            //已经全部处理完毕，现在需要返回原来的代码
-            String json = gson.toJson(syncback);
-            response.addHeader("anchor", Long.toString(now));
-
-            Output.output(json, response);
         } catch (NoSuchMethodException e) {
             e.printStackTrace();
         } catch (IllegalAccessException e) {
@@ -126,6 +125,11 @@ public class Sync1 extends HttpServlet {
         } catch (NoSuchFieldException e) {
             e.printStackTrace();
         }
+        String json = gson.toJson(syncback);
+        response.addHeader("anchor", Long.toString(now));
+
+        Output.output(json, response);
+
     }
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doPost(request, response);

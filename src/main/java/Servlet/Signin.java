@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Date;
@@ -40,9 +41,12 @@ public class Signin extends HttpServlet {
             Output.output(gson.toJson(loginBack), response);
         }
         DatabaseAdapter adapter = new DatabaseAdapter();
-        String mysql = "SELECT username FROM UserList WHERE username =  '" + username +"';";
+        //String mysql = "SELECT username FROM UserList WHERE username =  '" + username +"';";
+        String mysql = "SELECT username FROM UserList WHERE username = ?";
         try {
-            ResultSet rs = adapter.statement.executeQuery(mysql);
+            PreparedStatement pstm = adapter.connection.prepareStatement(mysql);
+            pstm.setString(1, username);
+            ResultSet rs = pstm.executeQuery();
             if(!rs.next()) {
                 //用户名不存在，可以成功注册
                 UserList user = new UserList();

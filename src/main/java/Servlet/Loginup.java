@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.lang.reflect.ParameterizedType;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -27,9 +29,12 @@ public class Loginup extends HttpServlet {
         String password = request.getParameter("password");
         String modelnum = request.getParameter("modelnum");
         DatabaseAdapter adapter = new DatabaseAdapter();
-        String mysql = "SELECT * FROM UserList WHERE username =  '" + username +"';";
+        //String mysql = "SELECT * FROM UserList WHERE username =  '" + username +"';";
+        String mysql = "SELECT * FROM UserList WHERE username = ?";
         try {
-            ResultSet rs = adapter.statement.executeQuery(mysql);
+            PreparedStatement pstm = adapter.connection.prepareStatement(mysql);
+            pstm.setString(1, username);
+            ResultSet rs = pstm.executeQuery();
             if(!rs.next()) {
                 //用户名不存在，请检查后输入
                 Gson gson = new Gson();
